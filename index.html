@@ -384,21 +384,1013 @@ footer{
 /* =========================
    KUUSAA SAHAABOTAA
 ========================= */
+  const sahaba = [
 
-const sahaba = [
+/* =========================
+   KHULAFAA FI ASHARA
+========================= */
 
 {
- id:"abu-bakr",
- name:"Abuu Bakr As-Siddiiq",
- arabic:"أبو بكر الصديق رضي الله عنه",
- aliases:[
-   "Abu Bakr",
-   "Abubakar",
-   "Abuu Bakr",
-   "As Siddiq",
-   "الصديق",
-   "أبو بكر"
- ],
+id:"abu-bakr",
+name:"Abuu Bakr As-Siddiiq",
+arabic:"أبو بكر الصديق رضي الله عنه",
+aliases:["Abu Bakr","Abubakar","أبو بكر","الصديق"],
+category:["Khulafaa","Muhajir"],
+icon:"⭐",
+short:"Khaliifaa jalqabaa Muslimootaa fi hiriyyaa dhugaa Nabiyyii ﷺ.",
+story:"Abuu Bakr رضي الله عنه sahaaba guddaa fi nama Islaama jalqabatti fudhate keessaa tokko ture. Hijraa keessatti Nabiyyii ﷺ waliin ture. Erga Nabiyyiin ﷺ du’anii booda khaliifaa jalqabaa ta’e.",
+lessons:["Dhugaa irratti cichuu","Amanamummaa","Amantii tiksuu"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"umar",
+name:"Umar ibn Al-Khattab",
+arabic:"عمر بن الخطاب رضي الله عنه",
+aliases:["Umar","Omar","Al Farooq","عمر","الفاروق"],
+category:["Khulafaa","Muhajir"],
+icon:"⚔️",
+short:"Khaliifaa lammaffaa; haqaa fi murtii sirrii irratti beekamaa.",
+story:"Umar رضي الله عنه Islaama erga fudhatee booda Muslimootaaf jajjabina guddaa ta’e. Khilaafaa isaa keessatti haqaa fi itti-gaafatamummaa irratti xiyyeeffate.",
+lessons:["Haqa","Itti-gaafatamummaa","Jabina amantii"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"uthman",
+name:"Uthmaan ibn Affaan",
+arabic:"عثمان بن عفان رضي الله عنه",
+aliases:["Uthman","Usman","Osman","Dhun Nurayn","عثمان","ذو النورين"],
+category:["Khulafaa","Muhajir"],
+icon:"📖",
+short:"Khaliifaa sadaffaa; nama haya fi sadaqaa isaatiin beekamaa.",
+story:"Uthmaan رضي الله عنه qabeenya isaa Islaamaaf baay’ee oolche. Yeroo khilaafaa isaa keessatti mushafota Qur’aanaa qindaa’anii gara naannolee adda addaatti ergamuun hojii guddaan raawwatame.",
+lessons:["Haya","Sadaqaa","Qur’aana kabajuu"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"ali",
+name:"Ali ibn Abi Taalib",
+arabic:"علي بن أبي طالب رضي الله عنه",
+aliases:["Ali","Ali ibn Abi Talib","علي","علي بن أبي طالب"],
+category:["Khulafaa","Muhajir"],
+icon:"🕌",
+short:"Khaliifaa afraffaa fi miseensa maatii Nabiyyii ﷺ.",
+story:"Ali رضي الله عنه ijoollee keessaa warra jalqabatti Islaama fudhatan keessaa tokko. Beekumsa, gootummaa fi jaalala Nabiyyii ﷺ isaatiin beekamaa ture.",
+lessons:["Beekumsa","Gootummaa","Jaalala amantii"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"talha",
+name:"Talhah ibn Ubaydillaah",
+arabic:"طلحة بن عبيد الله رضي الله عنه",
+aliases:["Talha","Talhah","طلحة"],
+category:["Ashara","Muhajir"],
+icon:"⭐",
+short:"Sahaaba beekamaa fi warra Jannataan gammachiifaman keessaa tokko.",
+story:"Talhah رضي الله عنه Islaama jalqabatti fudhate. Nabiyyii ﷺ tiksuu fi Muslimoota gargaaruu keessatti gahee qaba ture.",
+lessons:["Gootummaa","Sadaqaa","Jaalala Nabiyyii ﷺ"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"zubayr",
+name:"Az-Zubayr ibn Al-Awwaam",
+arabic:"الزبير بن العوام رضي الله عنه",
+aliases:["Zubair","Zubayr","الزبير"],
+category:["Ashara","Muhajir"],
+icon:"🛡️",
+short:"Sahaaba beekamaa fi warra Jannataan gammachiifaman keessaa tokko.",
+story:"Az-Zubayr رضي الله عنه Islaama jalqabatti fudhate. Gootummaa fi Nabiyyii ﷺ tiksuuf qophii isaatiin beekamaa ture.",
+lessons:["Jabina","Amanamummaa","Gootummaa"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"abdurrahman",
+name:"Abdur-Rahmaan ibn Awf",
+arabic:"عبد الرحمن بن عوف رضي الله عنه",
+aliases:["Abdur Rahman","Abdurrahman","عبد الرحمن بن عوف"],
+category:["Ashara","Muhajir"],
+icon:"💰",
+short:"Sahaaba qabeenya isaa kheeyrii keessatti oolche.",
+story:"Abdur-Rahmaan ibn Awf رضي الله عنه nama qabeenya isaa Muslimootaaf fi kheeyrii keessatti oolchu ture.",
+lessons:["Sadaqaa","Qabeenya sirriitti fayyadamuu","Obsa"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"saad-abi-waqqas",
+name:"Sa'd ibn Abi Waqqaas",
+arabic:"سعد بن أبي وقاص رضي الله عنه",
+aliases:["Saad","Sad ibn Abi Waqqas","سعد"],
+category:["Ashara","Muhajir"],
+icon:"🏹",
+short:"Sahaaba beekamaa fi warra Jannataan gammachiifaman keessaa tokko.",
+story:"Sa'd رضي الله عنه Islaama jalqabatti fudhatee Muslimoota keessatti gahee guddaa qabaate.",
+lessons:["Amantii","Jabina","Du'aa'ii"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"saeed",
+name:"Sa'iid ibn Zayd",
+arabic:"سعيد بن زيد رضي الله عنه",
+aliases:["Said","Sa'id ibn Zayd","سعيد بن زيد"],
+category:["Ashara","Muhajir"],
+icon:"🌙",
+short:"Sahaaba jalqabaa fi warra Jannataan gammachiifaman keessaa tokko.",
+story:"Sa'iid ibn Zayd رضي الله عنه Islaama jalqabatti fudhate; jireenya isaa amantii irratti dabarse.",
+lessons:["Iimaana","Obsa","Jabina"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"abu-ubaydah",
+name:"Abuu Ubaydah ibn Al-Jarraah",
+arabic:"أبو عبيدة بن الجراح رضي الله عنه",
+aliases:["Abu Ubaydah","Abu Ubaida","أبو عبيدة"],
+category:["Ashara","Muhajir"],
+icon:"🛡️",
+short:"Sahaaba amanamummaa isaatiin beekamaa.",
+story:"Abuu Ubaydah رضي الله عنه amanamummaa fi hoggansa isaatiin beekamaa ture.",
+lessons:["Amanamummaa","Hoggansa","Tajaajila"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+/* =========================
+   SAHAABOTA BEEKAMOO
+========================= */
+
+{
+id:"bilal",
+name:"Bilaal ibn Rabaah",
+arabic:"بلال بن رباح رضي الله عنه",
+aliases:["Bilal","Bilaal","بلال"],
+category:["Muhajir"],
+icon:"🌙",
+short:"Mu'azzina Nabiyyii ﷺ fi nama tawhiida irratti jabaate.",
+story:"Bilaal رضي الله عنه dararaa hedduu keessa darbuun Islaama isaa irraa hin deebine. Nabiyyii ﷺ irraa baay’ee dhihoo ture.",
+lessons:["Obsa","Tawhiida","Jabina"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"salman",
+name:"Salmaan Al-Faarisii",
+arabic:"سلمان الفارسي رضي الله عنه",
+aliases:["Salman","Salmaan","Salman Al Farisi","سلمان"],
+category:["Muhajir"],
+icon:"🌍",
+short:"Nama dhugaa barbaachaaf imala dheeraa godhe.",
+story:"Salmaan رضي الله عنه dhugaa barbaachaaf imala dheeraa godhee dhumarratti Islaama argate.",
+lessons:["Dhugaa barbaaduu","Obsa","Beekumsa"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"abu-hurayrah",
+name:"Abuu Hurayrah",
+arabic:"أبو هريرة رضي الله عنه",
+aliases:["Abu Huraira","Abu Hurayrah","أبو هريرة"],
+category:["Hadith"],
+icon:"📚",
+short:"Sahaaba hadiisa hedduu Nabiyyii ﷺ irraa dabarse.",
+story:"Abuu Hurayrah رضي الله عنه hadiisa Nabiyyii ﷺ barachuu fi dabarsuu irratti gahee guddaa qaba.",
+lessons:["Hadiisa barachuu","Yaadachuu","Beekumsa dabarsuu"],
+source:"Maddoota hadiisaa fi seenaa sahaabaa"
+},
+
+{
+id:"khalid",
+name:"Khaalid ibn Al-Waliid",
+arabic:"خالد بن الوليد رضي الله عنه",
+aliases:["Khalid","Khaalid","Saifullah","خالد","سيف الله"],
+category:["Muhajir"],
+icon:"🛡️",
+short:"Sahaaba gootummaa fi hoggansa waraanaa isaatiin beekamaa.",
+story:"Khaalid ibn Al-Waliid رضي الله عنه Islaama booda Muslimoota keessatti gahee waraanaa fi hoggansa qabaate.",
+lessons:["Qophii","Hoggansa","Jabina"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"musab",
+name:"Mus'ab ibn Umayr",
+arabic:"مصعب بن عمير رضي الله عنه",
+aliases:["Musab","Mus'ab","مصعب"],
+category:["Muhajir"],
+icon:"📜",
+short:"Daa'ii Nabiyyii ﷺ gara Madiinaa ergame.",
+story:"Mus'ab رضي الله عنه jireenya qananii dhiisee Islaamaaf of kenne. Madiinaa keessatti Qur'aanaa fi Islaama barsiisuu keessatti gahee guddaa qabaate.",
+lessons:["Da'awaa","Qur'aana","Qabsoo"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"anas",
+name:"Anas ibn Maalik",
+arabic:"أنس بن مالك رضي الله عنه",
+aliases:["Anas","Anas ibn Malik","أنس"],
+category:["Ansaar","Hadith"],
+icon:"📚",
+short:"Sahaaba Nabiyyii ﷺ tajaajilee hadiisa hedduu dabarse.",
+story:"Anas ibn Maalik رضي الله عنه Nabiyyii ﷺ tajaajiluun beekamaa ture. Booda hadiisa hedduu dabarse.",
+lessons:["Tajaajila","Hadiisa","Barnoota"],
+source:"Maddoota hadiisaa"
+},
+
+{
+id:"aisha",
+name:"Aa'ishah bint Abii Bakr",
+arabic:"عائشة بنت أبي بكر رضي الله عنها",
+aliases:["Aisha","Aishah","Aaisha","عائشة"],
+category:["Sahabiyyah","Hadith"],
+icon:"📚",
+short:"Haadha Mu'umintootaa fi nama beekumsa Islaamaa hedduu dabarsite.",
+story:"Aa'ishah رضي الله عنها hadiisa fi beekumsa Islaamaa keessatti gahee guddaa qabdi.",
+lessons:["Beekumsa","Hadiisa","Barnoota"],
+source:"Maddoota hadiisaa fi seenaa sahaabaa"
+},
+
+{
+id:"asma",
+name:"Asmaa' bint Abii Bakr",
+arabic:"أسماء بنت أبي بكر رضي الله عنها",
+aliases:["Asma","Asmaa","Asma bint Abi Bakr","أسماء"],
+category:["Sahabiyyah","Muhajir"],
+icon:"🌙",
+short:"Dubartii sahaabaa obsa fi amanamummaa isheetiin beekamtu.",
+story:"Asmaa' رضي الله عنها yeroo Hijraa keessatti hojiiwwan barbaachisoo keessatti gahee qabdi.",
+lessons:["Obsa","Amanamummaa","Jabina"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+/* =========================
+   100+ MAQAA SEARCH
+========================= */
+
+{
+id:"muadh",
+name:"Mu'aadh ibn Jabal",
+arabic:"معاذ بن جبل رضي الله عنه",
+aliases:["Muadh","Mu'adh","معاذ"],
+category:["Ansaar","Hadith"],
+icon:"📚",
+short:"Sahaaba beekumsa fi fiqh irratti beekamaa.",
+story:"Mu'aadh رضي الله عنه beekumsa Islaamaa barachuu fi barsiisuu irratti beekamaa ture.",
+lessons:["Beekumsa","Fiqh","Barsiisuu"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"abu-darda",
+name:"Abuu Ad-Dardaa'",
+arabic:"أبو الدرداء رضي الله عنه",
+aliases:["Abu Darda","Abu al-Darda","أبو الدرداء"],
+category:["Ansaar","Hadith"],
+icon:"📖",
+short:"Sahaaba beekumsa fi hikmaa isaatiin beekamaa.",
+story:"Abuu Ad-Dardaa' رضي الله عنه beekumsa, Qur'aana fi hikmaa irratti beekamaa ture.",
+lessons:["Hikmaa","Qur'aana","Beekumsa"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"hudhayfah",
+name:"Hudhayfah ibn Al-Yamaan",
+arabic:"حذيفة بن اليمان رضي الله عنه",
+aliases:["Hudhayfa","Hudhaifa","Hudhayfah","حذيفة"],
+category:["Hadith"],
+icon:"🔐",
+short:"Sahaaba amanamummaa fi beekumsa isaa irratti beekamaa.",
+story:"Hudhayfah رضي الله عنه Nabiyyii ﷺ irraa beekumsa hedduu fudhate.",
+lessons:["Amanamummaa","Beekumsa","Of eeggannoo"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"ammar",
+name:"Ammaar ibn Yaasir",
+arabic:"عمار بن ياسر رضي الله عنه",
+aliases:["Ammar","Ammaar","Ammar ibn Yasir","عمار"],
+category:["Muhajir"],
+icon:"🕌",
+short:"Sahaaba jalqabaa keessaa; rakkoo fi dararaa keessa jabaate.",
+story:"Ammaar رضي الله عنه maatii isaa waliin yeroo jalqaba Islaamaa keessatti dararaa guddaa arge.",
+lessons:["Obsa","Iimaana","Jabina"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"khabbab",
+name:"Khabaab ibn Al-Aratt",
+arabic:"خباب بن الأرت رضي الله عنه",
+aliases:["Khabbab","Khabaab","خباب"],
+category:["Muhajir"],
+icon:"🔥",
+short:"Sahaaba jalqabaa keessaa fi nama dararaa keessatti jabaate.",
+story:"Khabaab رضي الله عنه sababa Islaama isaatiin dararaa hedduu arge; garuu amantii isaa hin dhiifne.",
+lessons:["Obsa","Iimaana","Jabina"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"suhaib",
+name:"Suhayb Ar-Ruumii",
+arabic:"صهيب الرومي رضي الله عنه",
+aliases:["Suhaib","Suhayb","Suhaib Ar Rumi","صهيب"],
+category:["Muhajir"],
+icon:"🌍",
+short:"Sahaaba Hijraa fi qabeenya isaa dhiisuu isaatiin beekamaa.",
+story:"Suhayb رضي الله عنه yeroo Hijraa qabeenya isaa keessaa hedduu dhiisee gara Madiinaa godaane.",
+lessons:["Hijraa","Qabsoo","Amantii"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"abu-dharr",
+name:"Abuu Dharr Al-Ghifaarii",
+arabic:"أبو ذر الغفاري رضي الله عنه",
+aliases:["Abu Dharr","Abu Dhar","Abuu Dharr","أبو ذر"],
+category:["Muhajir"],
+icon:"🌿",
+short:"Sahaaba jalqabaa keessaa fi nama dhugaa dubbachuu isaatiin beekamaa.",
+story:"Abuu Dharr رضي الله عنه Islaama jalqabatti fudhate keessaa tokko ture.",
+lessons:["Dhugaa","Qana'aa","Iimaana"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"miqdad",
+name:"Al-Miqdaad ibn Al-Aswad",
+arabic:"المقداد بن الأسود رضي الله عنه",
+aliases:["Miqdad","Miqdaad","المقداد"],
+category:["Muhajir"],
+icon:"🛡️",
+short:"Sahaaba jalqabaa fi nama gootummaa isaatiin beekamaa.",
+story:"Al-Miqdaad رضي الله عنه Muslimoota jalqabaa keessaa tokko ture; yeroo rakkoo keessatti jabaatee dhaabbate.",
+lessons:["Gootummaa","Jabina","Iimaana"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"jaafar",
+name:"Ja'far ibn Abi Taalib",
+arabic:"جعفر بن أبي طالب رضي الله عنه",
+aliases:["Jafar","Jaafar","Ja'far","جعفر"],
+category:["Muhajir"],
+icon:"🕊️",
+short:"Obboleessa Alii fi sahaaba Hijraa Habashaa keessatti gahee qabu.",
+story:"Ja'far رضي الله عنه Muslimoota gara Habashaa godaanaa turan keessaa nama beekamaa ture.",
+lessons:["Da'awaa","Jabina","Iimaana"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"zayd-ibn-thabit",
+name:"Zayd ibn Thaabit",
+arabic:"زيد بن ثابت رضي الله عنه",
+aliases:["Zaid","Zayd ibn Thabit","Zayd","زيد بن ثابت"],
+category:["Ansaar","Quran"],
+icon:"📖",
+short:"Sahaaba Qur'aanaa fi barreessuu irratti gahee guddaa qabu.",
+story:"Zayd ibn Thaabit رضي الله عنه Nabiyyii ﷺ waliin ture; Qur'aana barreessuu fi beekumsa keessatti gahee qaba.",
+lessons:["Qur'aana","Barreeffama","Beekumsa"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"abdullah-ibn-masud",
+name:"Abdullaah ibn Mas'uud",
+arabic:"عبد الله بن مسعود رضي الله عنه",
+aliases:["Ibn Masud","Abdullah ibn Masud","Ibn Masood","عبد الله بن مسعود"],
+category:["Muhajir","Quran","Hadith"],
+icon:"📖",
+short:"Sahaaba Qur'aana fi hadiisa irratti beekamaa.",
+story:"Abdullaah ibn Mas'uud رضي الله عنه Qur'aana fi Sunnah barachuu keessatti gahee guddaa qaba.",
+lessons:["Qur'aana","Sunnah","Beekumsa"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"abdullah-ibn-abbas",
+name:"Abdullaah ibn Abbaas",
+arabic:"عبد الله بن عباس رضي الله عنه",
+aliases:["Ibn Abbas","Abdullah ibn Abbas","Ibn Abbaas","عبد الله بن عباس"],
+category:["Hadith","Quran"],
+icon:"📚",
+short:"Sahaaba beekumsa Qur'aanaa fi tafsiiraa irratti beekamaa.",
+story:"Abdullaah ibn Abbaas رضي الله عنه beekumsa Qur'aanaa fi tafsiiraa keessatti beekamaa ture.",
+lessons:["Tafsiira","Qur'aana","Beekumsa"],
+source:"Maddoota hadiisaa fi tafsiiraa"
+},
+
+{
+id:"abdullah-ibn-umar",
+name:"Abdullaah ibn Umar",
+arabic:"عبد الله بن عمر رضي الله عنه",
+aliases:["Ibn Umar","Abdullah ibn Umar","Ibn Omar","عبد الله بن عمر"],
+category:["Muhajir","Hadith"],
+icon:"📚",
+short:"Sahaaba Sunnah Nabiyyii ﷺ hordofuu irratti beekamaa.",
+story:"Abdullaah ibn Umar رضي الله عنه Sunnah Nabiyyii ﷺ hordofuu fi hadiisa dabarsuu irratti beekamaa ture.",
+lessons:["Sunnah","Of eeggannoo","Hordoffii"],
+source:"Maddoota hadiisaa"
+},
+
+{
+id:"abdullah-ibn-amr",
+name:"Abdullaah ibn Amr ibn Al-Aas",
+arabic:"عبد الله بن عمرو بن العاص رضي الله عنه",
+aliases:["Ibn Amr","Abdullah ibn Amr","عبد الله بن عمرو"],
+category:["Hadith"],
+icon:"📝",
+short:"Sahaaba hadiisa barreessuu fi beekumsa dabarsuu irratti beekamaa.",
+story:"Abdullaah ibn Amr رضي الله عنه hadiisa Nabiyyii ﷺ barachuu fi barreessuu irratti beekamaa ture.",
+lessons:["Barreessuu","Hadiisa","Beekumsa"],
+source:"Maddoota hadiisaa"
+},
+
+{
+id:"abu-saeed",
+name:"Abuu Sa'iid Al-Khudrii",
+arabic:"أبو سعيد الخدري رضي الله عنه",
+aliases:["Abu Said","Abu Saeed","Abu Sa'id","أبو سعيد الخدري"],
+category:["Ansaar","Hadith"],
+icon:"📚",
+short:"Sahaaba hadiisa hedduu dabarse.",
+story:"Abuu Sa'iid Al-Khudrii رضي الله عنه sahaaba Ansaar keessaa fi narrator hadiisaa beekamaa ture.",
+lessons:["Hadiisa","Barnoota","Dabarsuu"],
+source:"Maddoota hadiisaa"
+},
+
+{
+id:"abu-musa",
+name:"Abuu Muusaa Al-Ash'arii",
+arabic:"أبو موسى الأشعري رضي الله عنه",
+aliases:["Abu Musa","Abu Musa Al Ashari","أبو موسى"],
+category:["Ansaar","Hadith"],
+icon:"📖",
+short:"Sahaaba Qur'aana qara'uu fi sagalee bareedaan beekamaa.",
+story:"Abuu Muusaa رضي الله عنه Qur'aana qara'uu fi barsiisuu keessatti beekamaa ture.",
+lessons:["Qur'aana","Barsiisuu","Sagalee gaarii"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"abu-ayyub",
+name:"Abuu Ayyuub Al-Ansaarii",
+arabic:"أبو أيوب الأنصاري رضي الله عنه",
+aliases:["Abu Ayyub","Abu Ayyub Al Ansari","أبو أيوب"],
+category:["Ansaar"],
+icon:"🏠",
+short:"Sahaaba Nabiyyii ﷺ yeroo Madiinaa seenan keessummeesse.",
+story:"Abuu Ayyuub رضي الله عنه Nabiyyii ﷺ Madiinaa yeroo seenan mana isaa keessatti keessummeesse.",
+lessons:["Keessummaa","Jaalala","Tajaajila"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"saad-muadh",
+name:"Sa'd ibn Mu'aadh",
+arabic:"سعد بن معاذ رضي الله عنه",
+aliases:["Saad ibn Muadh","Sa'd ibn Muadh","سعد بن معاذ"],
+category:["Ansaar"],
+icon:"⭐",
+short:"Hogganaa Ansaar keessaa nama beekamaa.",
+story:"Sa'd ibn Mu'aadh رضي الله عنه hogganaa Ansaar keessaa fi nama Islaamaaf gahee guddaa qabu ture.",
+lessons:["Hoggansa","Amanamummaa","Iimaana"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"saad-ubadah",
+name:"Sa'd ibn Ubaadah",
+arabic:"سعد بن عبادة رضي الله عنه",
+aliases:["Saad ibn Ubadah","Sa'd ibn Ubadah","سعد بن عبادة"],
+category:["Ansaar"],
+icon:"🏠",
+short:"Hogganaa Ansaar keessaa.",
+story:"Sa'd ibn Ubaadah رضي الله عنه Ansaar keessaa nama beekamaa fi hogganaa ture.",
+lessons:["Hoggansa","Obbolummaa","Tajaajila"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"jabir",
+name:"Jaabir ibn Abdillaah",
+arabic:"جابر بن عبد الله رضي الله عنه",
+aliases:["Jabir","Jabir ibn Abdullah","Jaabir","جابر"],
+category:["Ansaar","Hadith"],
+icon:"📚",
+short:"Sahaaba Ansaar keessaa fi narrator hadiisaa beekamaa.",
+story:"Jaabir ibn Abdillaah رضي الله عنه hadiisa hedduu dabarse.",
+lessons:["Hadiisa","Beekumsa","Barnoota"],
+source:"Maddoota hadiisaa"
+},
+
+{
+id:"baraa",
+name:"Al-Baraa' ibn Aazib",
+arabic:"البراء بن عازب رضي الله عنه",
+aliases:["Bara ibn Azib","Al Baraa","البراء بن عازب"],
+category:["Ansaar","Hadith"],
+icon:"📖",
+short:"Sahaaba beekamaa fi narrator hadiisaa.",
+story:"Al-Baraa' ibn Aazib رضي الله عنه Nabiyyii ﷺ waliin ta'ee hadiisa fi seenaa hedduu dabarse.",
+lessons:["Hadiisa","Jabina","Beekumsa"],
+source:"Maddoota hadiisaa"
+},
+
+{
+id:"zayd-harithah",
+name:"Zayd ibn Haarithah",
+arabic:"زيد بن حارثة رضي الله عنه",
+aliases:["Zaid ibn Haritha","Zayd ibn Harithah","زيد بن حارثة"],
+category:["Muhajir"],
+icon:"🌙",
+short:"Sahaaba Nabiyyii ﷺ irraa baay’ee dhihoo ture.",
+story:"Zayd ibn Haarithah رضي الله عنه Nabiyyii ﷺ waliin hariiroo cimaa qaba ture.",
+lessons:["Jaalala","Amanamummaa","Tajaajila"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"usamah",
+name:"Usaamah ibn Zayd",
+arabic:"أسامة بن زيد رضي الله عنه",
+aliases:["Usama","Usamah","Usama ibn Zaid","أسامة بن زيد"],
+category:["Muhajir"],
+icon:"🛡️",
+short:"Dargaggeessa sahaabaa fi hogganaa waraanaa.",
+story:"Usaamah ibn Zayd رضي الله عنه dargaggeessa ta'ee hoggansa keessatti gahee qabaate.",
+lessons:["Dargaggummaa","Hoggansa","Itti-gaafatamummaa"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"abu-darda",
+name:"Abuu Ad-Dardaa'",
+arabic:"أبو الدرداء رضي الله عنه",
+aliases:["Abu Darda","Abu Dardaa","أبو الدرداء"],
+category:["Ansaar","Hadith"],
+icon:"📖",
+short:"Sahaaba beekumsa fi hikmaa isaatiin beekamaa.",
+story:"Abuu Ad-Dardaa' رضي الله عنه Qur'aana, beekumsa fi hikmaa barsiisuu keessatti gahee qaba.",
+lessons:["Hikmaa","Qur'aana","Beekumsa"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"thabit",
+name:"Thaabit ibn Qays",
+arabic:"ثابت بن قيس رضي الله عنه",
+aliases:["Thabit","Thabit ibn Qays","ثابت بن قيس"],
+category:["Ansaar"],
+icon:"🎙️",
+short:"Khatiib Nabiyyii ﷺ jedhamuun beekamaa.",
+story:"Thaabit ibn Qays رضي الله عنه dubbii fi khutbaa keessatti beekamaa ture.",
+lessons:["Dubbii gaarii","Khutbaa","Jabina"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"abu-talha",
+name:"Abuu Talhah Al-Ansaarii",
+arabic:"أبو طلحة الأنصاري رضي الله عنه",
+aliases:["Abu Talha","Abu Talhah","أبو طلحة"],
+category:["Ansaar"],
+icon:"🌴",
+short:"Sahaaba Ansaar keessaa nama sadaqaa fi gootummaa isaatiin beekamaa.",
+story:"Abuu Talhah رضي الله عنه qabeenya isaa kheeyrii keessatti oolchuu fi Muslimoota gargaaruu keessatti beekamaa ture.",
+lessons:["Sadaqaa","Gootummaa","Qabeenya kheeyrii"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"abu-sufyan",
+name:"Abuu Sufyaan ibn Harb",
+arabic:"أبو سفيان بن حرب رضي الله عنه",
+aliases:["Abu Sufyan","Abu Sufyaan","أبو سفيان بن حرب"],
+category:["Muhajir"],
+icon:"🕋",
+short:"Hogganaa Quraysh kan booda Islaama fudhate.",
+story:"Abuu Sufyaan ibn Harb رضي الله عنه booda Islaama fudhatee Muslimoota waliin ta'e.",
+lessons:["Jijjiirama","Tawbaa","Amantii"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"muawiyah",
+name:"Mu'aawiyah ibn Abii Sufyaan",
+arabic:"معاوية بن أبي سفيان رضي الله عنه",
+aliases:["Muawiya","Muawiyah","معاوية"],
+category:["Muhajir","Hadith"],
+icon:"📜",
+short:"Sahaaba fi barreessaa wahyii keessaa tokko jedhamee seenaa keessatti beekama.",
+story:"Mu'aawiyah رضي الله عنه Nabiyyii ﷺ waliin turee hojiiwwan adda addaa keessatti hirmaate.",
+lessons:["Barreessuu","Tajaajila","Itti-gaafatamummaa"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"amr-ibn-as",
+name:"Amr ibn Al-Aas",
+arabic:"عمرو بن العاص رضي الله عنه",
+aliases:["Amr ibn al As","Amr ibn Al-Aas","عمرو بن العاص"],
+category:["Muhajir"],
+icon:"🗺️",
+short:"Sahaaba beekamaa fi hogganaa.",
+story:"Amr ibn Al-Aas رضي الله عنه Islaama booda Muslimoota keessatti gahee hoggansaa qabaate.",
+lessons:["Hoggansa","Qophii","Itti-gaafatamummaa"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"abu-dharr",
+name:"Abuu Dharr Al-Ghifaarii",
+arabic:"أبو ذر الغفاري رضي الله عنه",
+aliases:["Abu Dharr","Abu Dhar","أبو ذر"],
+category:["Muhajir"],
+icon:"🌿",
+short:"Sahaaba dhugaa dubbachuu fi qana'aa isaatiin beekamaa.",
+story:"Abuu Dharr رضي الله عنه Muslimoota jalqabaa keessaa tokko ture.",
+lessons:["Dhugaa","Qana'aa","Iimaana"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"fatimah",
+name:"Faaximah bint Muhammad",
+arabic:"فاطمة بنت محمد رضي الله عنها",
+aliases:["Fatima","Fatimah","Faaxima","فاطمة"],
+category:["Sahabiyyah","Ahlul Bayt"],
+icon:"🌸",
+short:"Intala Nabiyyii Muhammad ﷺ fi miseensa maatii isaa.",
+story:"Faaximah رضي الله عنها intala Nabiyyii ﷺ fi haadha ijoollee Alii رضي الله عنه turte.",
+lessons:["Jireenya maatii","Obsa","Amantii"],
+source:"Maddoota seenaa Ahlul Bayt"
+},
+
+{
+id:"hafsa",
+name:"Hafsah bint Umar",
+arabic:"حفصة بنت عمر رضي الله عنها",
+aliases:["Hafsa","Hafsah","حفصة"],
+category:["Sahabiyyah","Hadith"],
+icon:"📖",
+short:"Haadha Mu'umintootaa fi intala Umar ibn Al-Khattab.",
+story:"Hafsah رضي الله عنها haadha Mu'umintootaa fi nama beekumsa Islaamaa qabu turte.",
+lessons:["Qur'aana","Beekumsa","Amantii"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"umm-salamah",
+name:"Ummu Salamah",
+arabic:"أم سلمة رضي الله عنها",
+aliases:["Umm Salama","Umm Salamah","Ummu Salamah","أم سلمة"],
+category:["Sahabiyyah","Hadith"],
+icon:"🌙",
+short:"Haadha Mu'umintootaa fi dubartii beekumsa fi hikmaa isheetiin beekamtu.",
+story:"Ummu Salamah رضي الله عنها haadha Mu'umintootaa keessaa tokko; beekumsa fi gorsa isheetiin beekamtu.",
+lessons:["Hikmaa","Obsa","Beekumsa"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"sumayyah",
+name:"Sumayyah bint Khayyaat",
+arabic:"سمية بنت خياط رضي الله عنها",
+aliases:["Sumayya","Sumayyah","سمية"],
+category:["Sahabiyyah","Muhajir"],
+icon:"🌙",
+short:"Dubartoota Muslimoota jalqabaa keessaa tokko.",
+story:"Sumayyah رضي الله عنها Islaama irratti jabaattee dhaabbachuu isheetiin seenaa keessatti beekamti.",
+lessons:["Obsa","Iimaana","Jabina"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"nusaybah",
+name:"Nusaybah bint Ka'b",
+arabic:"نسيبة بنت كعب رضي الله عنها",
+aliases:["Nusaybah","Nusaiba","نسيبة"],
+category:["Sahabiyyah","Ansaar"],
+icon:"🛡️",
+short:"Dubartii sahaabaa Nabiyyii ﷺ tiksuu keessatti gahee qabdu.",
+story:"Nusaybah رضي الله عنها yeroo rakkoo keessatti Muslimoota fi Nabiyyii ﷺ bira dhaabbachuu isheetiin beekamti.",
+lessons:["Gootummaa","Jabina","Tajaajila"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"umm-ayman",
+name:"Ummu Ayman",
+arabic:"أم أيمن رضي الله عنها",
+aliases:["Umm Ayman","Ummu Ayman","أم أيمن"],
+category:["Sahabiyyah"],
+icon:"🌸",
+short:"Dubartii Nabiyyii ﷺ irraa baay’ee dhihoo turte.",
+story:"Ummu Ayman رضي الله عنها jireenya Nabiyyii ﷺ keessatti gahee dheeraa qabdi.",
+lessons:["Jaalala","Tajaajila","Obsa"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"safiyyah",
+name:"Safiyyah bint Huyayy",
+arabic:"صفية بنت حيي رضي الله عنها",
+aliases:["Safiya","Safiyyah","صفية"],
+category:["Sahabiyyah","Hadith"],
+icon:"🌸",
+short:"Haadha Mu'umintootaa keessaa tokko.",
+story:"Safiyyah رضي الله عنها haadha Mu'umintootaa keessaa tokko turte.",
+lessons:["Obsa","Jaalala","Amantii"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"juwayriyah",
+name:"Juwayriyah bint Al-Haarith",
+arabic:"جويرية بنت الحارث رضي الله عنها",
+aliases:["Juwayriya","Juwairiyah","جويرية"],
+category:["Sahabiyyah"],
+icon:"🌸",
+short:"Haadha Mu'umintootaa keessaa tokko.",
+story:"Juwayriyah رضي الله عنها haadha Mu'umintootaa keessaa tokko turte.",
+lessons:["Amantii","Obsa","Jaalala"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"rayhanah",
+name:"Rayhaanah",
+arabic:"ريحانة رضي الله عنها",
+aliases:["Rayhana","Rayhanah","ريحانة"],
+category:["Sahabiyyah"],
+icon:"🌸",
+short:"Maqaa dubartoota yeroo Nabiyyii ﷺ keessa turan keessaa tokko.",
+story:"Rayhaanah maqaa dubartoota yeroo Nabiyyii ﷺ keessa turan keessaa tokko jedhamee maddoota seenaa keessatti argama.",
+lessons:["Seenaa barachuu","Qorannoo"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+/* =========================
+   MAQAA DABALATAA
+========================= */
+
+{
+id:"abu-musa",
+name:"Abuu Muusaa Al-Ash'arii",
+arabic:"أبو موسى الأشعري رضي الله عنه",
+aliases:["Abu Musa","Abu Musa Al Ashari","أبو موسى"],
+category:["Ansaar","Hadith"],
+icon:"📖",
+short:"Sahaaba Qur'aana fi hadiisa irratti beekamaa.",
+story:"Abuu Muusaa رضي الله عنه Qur'aana qara'uu fi barsiisuu irratti beekamaa ture.",
+lessons:["Qur'aana","Barsiisuu","Hadiisa"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"abu-qatada",
+name:"Abuu Qataadah Al-Ansaarii",
+arabic:"أبو قتادة الأنصاري رضي الله عنه",
+aliases:["Abu Qatada","Abu Qatadah","أبو قتادة"],
+category:["Ansaar"],
+icon:"🏹",
+short:"Sahaaba gootummaa isaatiin beekamaa.",
+story:"Abuu Qataadah رضي الله عنه Nabiyyii ﷺ waliin duula adda addaa keessatti hirmaate.",
+lessons:["Gootummaa","Tajaajila","Jabina"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"hudhayfah",
+name:"Hudhayfah ibn Al-Yamaan",
+arabic:"حذيفة بن اليمان رضي الله عنه",
+aliases:["Hudhayfa","Hudhaifa","حذيفة"],
+category:["Hadith"],
+icon:"🔐",
+short:"Sahaaba beekumsa addaa fi amanamummaa isaatiin beekamaa.",
+story:"Hudhayfah رضي الله عنه Nabiyyii ﷺ irraa beekumsa hedduu fudhate.",
+lessons:["Amanamummaa","Beekumsa","Of eeggannoo"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"imran",
+name:"Imraan ibn Husayn",
+arabic:"عمران بن حصين رضي الله عنه",
+aliases:["Imran","Imraan ibn Husain","عمران بن حصين"],
+category:["Hadith"],
+icon:"📚",
+short:"Sahaaba hadiisaa fi beekumsa isaatiin beekamaa.",
+story:"Imraan ibn Husayn رضي الله عنه hadiisa fi barnoota Islaamaa dabarsuu keessatti gahee qaba.",
+lessons:["Hadiisa","Obsa","Beekumsa"],
+source:"Maddoota hadiisaa"
+},
+
+{
+id:"jarir",
+name:"Jariir ibn Abdillaah",
+arabic:"جرير بن عبد الله رضي الله عنه",
+aliases:["Jarir","Jareer","جرير"],
+category:["Muhajir"],
+icon:"🌙",
+short:"Sahaaba beekamaa fi nama Islaamaaf gahee qabu.",
+story:"Jariir رضي الله عنه Nabiyyii ﷺ waliin hidhata qabaatee Muslimoota keessatti gahee qabaate.",
+lessons:["Amanamummaa","Da'awaa","Jabina"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"adi",
+name:"Adiyy ibn Haatim",
+arabic:"عدي بن حاتم رضي الله عنه",
+aliases:["Adi","Adiyy","Adi ibn Hatim","عدي بن حاتم"],
+category:["Sahaabaa"],
+icon:"🌙",
+short:"Sahaaba booda Islaama fudhatee beekamaa ta'e.",
+story:"Adiyy ibn Haatim رضي الله عنه booda Islaama fudhatee Muslimoota keessaa nama beekamaa ta'e.",
+lessons:["Jijjiirama","Da'awaa","Amantii"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"wahshi",
+name:"Wahshii ibn Harb",
+arabic:"وحشي بن حرب رضي الله عنه",
+aliases:["Wahshi","Wahshi ibn Harb","وحشي"],
+category:["Sahaabaa"],
+icon:"🌙",
+short:"Sahaaba booda Islaama fudhate.",
+story:"Wahshii ibn Harb رضي الله عنه booda Islaama fudhatee Muslimoota keessaa ta'e.",
+lessons:["Tawbaa","Jijjiirama","Amantii"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"tamim",
+name:"Tamiim Ad-Daarii",
+arabic:"تميم الداري رضي الله عنه",
+aliases:["Tamim","Tamim Al Dari","Tameem","تميم الداري"],
+category:["Hadith"],
+icon:"📚",
+short:"Sahaaba beekamaa fi narrator hadiisaa.",
+story:"Tamiim Ad-Daarii رضي الله عنه Nabiyyii ﷺ waliin turee hadiisa dabarse.",
+lessons:["Hadiisa","Beekumsa","Da'awaa"],
+source:"Maddoota hadiisaa"
+},
+
+{
+id:"zayd-arqam",
+name:"Zayd ibn Arqam",
+arabic:"زيد بن أرقم رضي الله عنه",
+aliases:["Zaid ibn Arqam","Zayd ibn Arqam","زيد بن أرقم"],
+category:["Ansaar","Hadith"],
+icon:"📖",
+short:"Sahaaba dargaggeessa fi narrator hadiisaa.",
+story:"Zayd ibn Arqam رضي الله عنه yeroo dargaggummaa isaa keessatti Nabiyyii ﷺ waliin ture.",
+lessons:["Dargaggummaa","Beekumsa","Amanamummaa"],
+source:"Maddoota hadiisaa"
+},
+
+{
+id:"baraa-azib",
+name:"Al-Baraa' ibn Maalik",
+arabic:"البراء بن مالك رضي الله عنه",
+aliases:["Baraa ibn Malik","Al Baraa ibn Malik","البراء بن مالك"],
+category:["Ansaar"],
+icon:"🛡️",
+short:"Sahaaba gootummaa isaatiin beekamaa.",
+story:"Al-Baraa' ibn Maalik رضي الله عنه gootummaa fi jabina isaa keessatti beekamaa ture.",
+lessons:["Gootummaa","Jabina","Iimaana"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"abu-dujanah",
+name:"Abuu Duj-aanah",
+arabic:"أبو دجانة رضي الله عنه",
+aliases:["Abu Dujana","Abu Dujanah","أبو دجانة"],
+category:["Ansaar"],
+icon:"🛡️",
+short:"Sahaaba gootummaa isaatiin beekamaa.",
+story:"Abuu Duj-aanah رضي الله عنه yeroo duula keessatti gootummaa agarsiise.",
+lessons:["Gootummaa","Tajaajila","Jabina"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"uthman-mazun",
+name:"Uthmaan ibn Maz'uwn",
+arabic:"عثمان بن مظعون رضي الله عنه",
+aliases:["Uthman ibn Mazun","Uthman Mazun","عثمان بن مظعون"],
+category:["Muhajir"],
+icon:"🌙",
+short:"Sahaaba jalqabaa keessaa fi nama zuhduu isaatiin beekamaa.",
+story:"Uthmaan ibn Maz'uwn رضي الله عنه Muslimoota jalqabaa keessaa ture.",
+lessons:["Zuhdii","Iimaana","Obsa"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"arqam",
+name:"Al-Arqam ibn Abil-Arqam",
+arabic:"الأرقم بن أبي الأرقم رضي الله عنه",
+aliases:["Al Arqam","Arqam","الأرقم"],
+category:["Muhajir"],
+icon:"🏠",
+short:"Mana isaa keessatti Muslimoonni jalqabaa walitti qabamaa turan.",
+story:"Al-Arqam رضي الله عنه mana isaa keessatti Nabiyyii ﷺ fi Muslimoota jalqabaa simachuun gahee qabaate.",
+lessons:["Tajaajila","Amanamummaa","Da'awaa"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"sahl",
+name:"Sahl ibn Hunaif",
+arabic:"سهل بن حنيف رضي الله عنه",
+aliases:["Sahl","Sahl ibn Hunaif","سهل بن حنيف"],
+category:["Ansaar"],
+icon:"🛡️",
+short:"Sahaaba Ansaar keessaa nama beekamaa.",
+story:"Sahl ibn Hunaif رضي الله عنه Nabiyyii ﷺ waliin ta'ee Muslimoota tajaajile.",
+lessons:["Tajaajila","Iimaana","Jabina"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"ubadah",
+name:"Ubaadah ibn As-Saamit",
+arabic:"عبادة بن الصامت رضي الله عنه",
+aliases:["Ubadah","Ubadah ibn Samit","عبادة بن الصامت"],
+category:["Ansaar","Hadith"],
+icon:"📚",
+short:"Hogganaa Ansaar fi nama hadiisaa dabarse.",
+story:"Ubaadah ibn As-Saamit رضي الله عنه Ansaar keessaa nama beekamaa fi narrator hadiisaa ture.",
+lessons:["Amanamummaa","Beekumsa","Hoggansa"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"abdullah-rawahah",
+name:"Abdullaah ibn Rawaahah",
+arabic:"عبد الله بن رواحة رضي الله عنه",
+aliases:["Ibn Rawahah","Abdullah ibn Rawaha","عبد الله بن رواحة"],
+category:["Ansaar"],
+icon:"📝",
+short:"Sahaaba Ansaar keessaa fi nama walaloo Islaamaa irratti beekamaa.",
+story:"Abdullaah ibn Rawaahah رضي الله عنه sahaaba Ansaar keessaa fi nama da'awaa keessatti gahee qabu ture.",
+lessons:["Da'awaa","Jabina","Dubbii gaarii"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"kaab",
+name:"Ka'b ibn Maalik",
+arabic:"كعب بن مالك رضي الله عنه",
+aliases:["Kab ibn Malik","Ka'b ibn Malik","كعب بن مالك"],
+category:["Ansaar","Hadith"],
+icon:"📝",
+short:"Sahaaba Ansaar keessaa fi nama walaloo fi hadiisaa irratti beekamaa.",
+story:"Ka'b ibn Maalik رضي الله عنه sahaaba beekamaa fi narrator hadiisaa ture.",
+lessons:["Dhugaa","Tawbaa","Obsa"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"huzaimah",
+name:"Khuzaymah ibn Thaabit",
+arabic:"خزيمة بن ثابت رضي الله عنه",
+aliases:["Khuzayma","Khuzaymah","خزيمة بن ثابت"],
+category:["Ansaar"],
+icon:"⭐",
+short:"Sahaaba amanamummaa fi ragaa isaatiin beekamaa.",
+story:"Khuzaymah رضي الله عنه sahaaba beekamaa fi amanamummaa isaatiin yaadatamu.",
+lessons:["Amanamummaa","Dhugaa","Iimaana"],
+source:"Maddoota seenaa sahaabaa"
+},
+
+{
+id:"abu-musa2",
+name:"Abuu Muusaa Al-Ash'arii",
+arabic:"أبو موسى الأشعري رضي الله عنه",
+aliases:["Abu Musa","Musa Al Ashari","أبو موسى الأشعري"],
+category:["Ansaar","Hadith"],
+icon:"📖",
+short:"Sahaaba Qur'aana fi hadiisa irratti beekamaa.",
+story:"Abuu Muusaa Al-Ash'arii رضي الله عنه Qur'aana fi hadiisa barsiisuu keessatti gahee qaba.",
+lessons:["Qur'aana","Hadiisa","Barsiisuu"],
+source:"Maddoota seenaa sahaabaa"
+}
+
+];
  category:["Khulafaa","Muhajir"],
  icon:"⭐",
  short:"Khaliifaa jalqabaa Muslimootaa fi nama Nabiyyii ﷺ waliin baay’ee dhihoo ture.",
