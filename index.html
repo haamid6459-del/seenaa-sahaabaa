@@ -15,14 +15,20 @@
 }
 
 body{
-  background:#f5f7f6;
-  color:#17251f;
+  background:#f4f7f5;
+  color:#17221d;
+  transition:.3s;
+}
+
+body.dark{
+  background:#101613;
+  color:#eee;
 }
 
 header{
-  background:#075e54;
+  background:linear-gradient(135deg,#075e54,#0b806f);
   color:white;
-  padding:18px 15px;
+  padding:22px 15px;
   text-align:center;
   position:sticky;
   top:0;
@@ -30,54 +36,99 @@ header{
 }
 
 header h1{
-  font-size:25px;
-  margin-bottom:6px;
+  font-size:27px;
+  margin-bottom:7px;
 }
 
 header p{
   font-size:14px;
-}
-
-.search-box{
-  padding:15px;
-  background:white;
-  position:sticky;
-  top:75px;
-  z-index:9;
-}
-
-.search-box input{
-  width:100%;
-  padding:13px 15px;
-  border:1px solid #ddd;
-  border-radius:25px;
-  outline:none;
-  font-size:16px;
+  opacity:.9;
 }
 
 .container{
-  padding:15px;
   max-width:900px;
   margin:auto;
+  padding:18px;
 }
 
-.section-title{
-  margin:10px 0 15px;
-  color:#075e54;
-  font-size:21px;
+.searchBox{
+  position:relative;
+  margin-bottom:15px;
 }
 
-.cards{
+#searchInput{
+  width:100%;
+  padding:16px 48px 16px 18px;
+  border:none;
+  border-radius:15px;
+  font-size:16px;
+  outline:none;
+  box-shadow:0 3px 12px #0001;
+}
+
+.dark #searchInput{
+  background:#1b2420;
+  color:white;
+}
+
+.searchIcon{
+  position:absolute;
+  right:17px;
+  top:15px;
+  font-size:20px;
+}
+
+.categories{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:5px 0 15px;
+}
+
+.categories button{
+  border:none;
+  padding:10px 15px;
+  border-radius:20px;
+  background:white;
+  cursor:pointer;
+  white-space:nowrap;
+  box-shadow:0 2px 7px #0001;
+}
+
+.dark .categories button{
+  background:#1b2420;
+  color:white;
+}
+
+.categories button.active{
+  background:#075e54;
+  color:white;
+}
+
+.info{
+  background:#e3f3ee;
+  padding:13px;
+  border-radius:12px;
+  margin-bottom:15px;
+  font-size:14px;
+}
+
+.dark .info{
+  background:#1a2924;
+}
+
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:15px;
 }
 
 .card{
   background:white;
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
+  border-radius:18px;
+  padding:18px;
+  box-shadow:0 4px 15px #0001;
+  cursor:pointer;
   transition:.2s;
 }
 
@@ -85,147 +136,178 @@ header p{
   transform:translateY(-3px);
 }
 
-.card-image{
-  width:100%;
-  height:170px;
-  object-fit:cover;
-  background:#dfe8e4;
+.dark .card{
+  background:#1b2420;
 }
 
-.card-content{
-  padding:15px;
-}
-
-.card h3{
-  color:#075e54;
-  margin-bottom:7px;
-}
-
-.card p{
-  color:#555;
-  line-height:1.6;
-  font-size:14px;
-}
-
-.read-btn{
-  margin-top:12px;
-  width:100%;
-  border:none;
-  background:#075e54;
-  color:white;
-  padding:11px;
-  border-radius:8px;
-  cursor:pointer;
-  font-size:15px;
-}
-
-.read-btn:hover{
-  background:#064c44;
-}
-
-#detailPage{
-  display:none;
-}
-
-.back-btn{
-  background:#075e54;
-  color:white;
-  border:none;
-  padding:10px 16px;
-  border-radius:8px;
-  margin-bottom:15px;
-  cursor:pointer;
-}
-
-.detail-card{
-  background:white;
-  padding:20px;
+.avatar{
+  height:125px;
   border-radius:15px;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
+  background:linear-gradient(135deg,#075e54,#15a58e);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:55px;
+  margin-bottom:13px;
 }
 
-.detail-card img{
-  width:100%;
-  max-height:350px;
-  object-fit:cover;
-  border-radius:12px;
-  margin-bottom:18px;
-}
-
-.detail-card h2{
-  color:#075e54;
-  margin-bottom:12px;
-}
-
-.detail-card h3{
-  margin-top:20px;
-  margin-bottom:8px;
-  color:#075e54;
-}
-
-.detail-card p{
-  line-height:1.9;
-  margin-bottom:10px;
-  color:#333;
+.card h2{
+  font-size:19px;
+  margin-bottom:5px;
 }
 
 .arabic{
   direction:rtl;
-  text-align:right;
-  font-size:19px;
-  line-height:2;
-  background:#f1f6f4;
-  padding:15px;
-  border-radius:10px;
+  font-size:18px;
+  color:#087a68;
+  margin-bottom:8px;
+}
+
+.dark .arabic{
+  color:#54cdb5;
+}
+
+.tag{
+  display:inline-block;
+  padding:5px 9px;
+  background:#e4f4ef;
+  color:#075e54;
+  border-radius:12px;
+  font-size:12px;
+  margin-top:5px;
+}
+
+.dark .tag{
+  background:#203a33;
+  color:#7be0ca;
+}
+
+.card p{
   margin-top:10px;
+  line-height:1.6;
+  font-size:14px;
+}
+
+#detail{
+  display:none;
+}
+
+.backBtn{
+  border:none;
+  background:#075e54;
+  color:white;
+  padding:11px 16px;
+  border-radius:12px;
+  cursor:pointer;
+  margin-bottom:15px;
+}
+
+.detailCard{
+  background:white;
+  border-radius:20px;
+  padding:22px;
+  box-shadow:0 4px 18px #0001;
+}
+
+.dark .detailCard{
+  background:#1b2420;
+}
+
+.detailAvatar{
+  height:190px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#075e54,#18a58e);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:80px;
+  margin-bottom:18px;
+}
+
+.detailCard h1{
+  font-size:27px;
+  margin-bottom:5px;
+}
+
+.detailArabic{
+  direction:rtl;
+  font-size:24px;
+  color:#087a68;
+  margin-bottom:15px;
+}
+
+.dark .detailArabic{
+  color:#69ddc5;
+}
+
+.section{
+  margin-top:22px;
+}
+
+.section h3{
+  color:#075e54;
+  margin-bottom:8px;
+  border-bottom:2px solid #075e54;
+  padding-bottom:6px;
+}
+
+.dark .section h3{
+  color:#70ddc7;
+}
+
+.section p{
+  line-height:1.9;
+  font-size:16px;
+}
+
+.lessons{
+  padding-left:20px;
+  line-height:1.9;
+}
+
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:20px;
+  flex-wrap:wrap;
+}
+
+.actions button{
+  border:none;
+  padding:11px 15px;
+  border-radius:12px;
+  cursor:pointer;
+  background:#075e54;
+  color:white;
 }
 
 .empty{
   text-align:center;
-  padding:30px;
-  color:#777;
+  padding:45px 15px;
+}
+
+.empty div{
+  font-size:50px;
+  margin-bottom:10px;
+}
+
+.themeBtn{
+  position:absolute;
+  right:12px;
+  top:15px;
+  border:none;
+  background:#ffffff22;
+  color:white;
+  padding:9px;
+  border-radius:10px;
+  cursor:pointer;
 }
 
 footer{
   text-align:center;
-  padding:25px;
-  margin-top:30px;
-  background:#075e54;
-  color:white;
-  font-size:14px;
-}
-
-.dark{
-  background:#121817;
-  color:#eee;
-}
-
-.dark .card,
-.dark .detail-card,
-.dark .search-box{
-  background:#1d2624;
-}
-
-.dark .card p,
-.dark .detail-card p{
-  color:#ddd;
-}
-
-.dark .arabic{
-  background:#263330;
-}
-
-.theme-btn{
-  position:absolute;
-  right:15px;
-  top:18px;
-  border:none;
-  background:rgba(255,255,255,.2);
-  color:white;
-  border-radius:50%;
-  width:38px;
-  height:38px;
-  cursor:pointer;
+  padding:30px 15px;
+  color:#777;
+  font-size:13px;
 }
 </style>
 </head>
@@ -233,339 +315,899 @@ footer{
 <body>
 
 <header>
-  <button class="theme-btn" onclick="toggleDark()">☾</button>
+  <button class="themeBtn" onclick="toggleDark()">🌙</button>
   <h1>📖 Seenaa Sahaabaa</h1>
-  <p>Seenaa sahaabota رضي الله عنهم baradhu</p>
+  <p>Seenaa sahaabota Radhiyallaahu ‘anhum baradhu</p>
 </header>
 
-<div class="search-box">
-  <input
-    type="text"
-    id="search"
-    placeholder="🔎 Maqaa sahaabaa barbaadi..."
-    oninput="searchSahaba()"
-  >
+<div class="container">
+
+  <div id="home">
+
+    <div class="searchBox">
+      <input
+        id="searchInput"
+        type="text"
+        placeholder="🔎 Maqaa sahaabaa barbaadi..."
+        oninput="searchSahaba()"
+      >
+      <span class="searchIcon">🔍</span>
+    </div>
+
+    <div class="categories">
+      <button class="active" onclick="filterCategory('Hundaa',this)">
+        Hundaa
+      </button>
+
+      <button onclick="filterCategory('Khulafaa',this)">
+        Khulafaa
+      </button>
+
+      <button onclick="filterCategory('Muhajir',this)">
+        Muhajir
+      </button>
+
+      <button onclick="filterCategory('Ansaar',this)">
+        Ansaar
+      </button>
+
+      <button onclick="filterCategory('Hadith',this)">
+        Hayyoota Hadith
+      </button>
+    </div>
+
+    <div class="info">
+      🔎 <b>Akkaataa barbaacha:</b>
+      Maqaa Afaan Oromoo, Arabiffaa, English ykn kunyaa barreessi.
+      Fakkeenyaaf:
+      <b>Abu Bakr</b>, <b>Umar</b>, <b>Bilal</b>,
+      <b>أبو بكر</b>, <b>عمر</b>.
+    </div>
+
+    <div id="resultInfo"></div>
+
+    <div id="sahabaList" class="grid"></div>
+
+  </div>
+
+  <div id="detail"></div>
+
 </div>
 
-<main class="container">
-
-  <section id="homePage">
-
-    <h2 class="section-title">Sahaabota</h2>
-
-    <div class="cards" id="sahabaList"></div>
-
-  </section>
-
-  <section id="detailPage">
-
-    <button class="back-btn" onclick="goHome()">← Duubatti deebi'i</button>
-
-    <div class="detail-card" id="detailContent"></div>
-
-  </section>
-
-</main>
-
 <footer>
-  © 2026 Seenaa Sahaabaa
-  <br>
-  Barnoota, seenaa fi yaadannoo sahaabota رضي الله عنهم
+  📚 Seenaa Sahaabaa — Barnoota, yaadannoo fi qophii barnoota Islaamaa
 </footer>
 
 
 <script>
 
+/* =========================
+   KUUSAA SAHAABOTAA
+========================= */
+
 const sahaba = [
 
 {
-name:"Abu Bakr As-Siddiiq رضي الله عنه",
-short:"Khaliifaa jalqabaa fi hiriyyaa dhiyoo Nabii Muhammad ﷺ.",
-image:"https://images.unsplash.com/photo-1542816417-0983674e1c7b?auto=format&fit=crop&w=900&q=80",
-story:`
-Abu Bakr As-Siddiiq رضي الله عنه sahaabota beekamoo keessaa tokko.
-Maqaan isaa Abdullah ibn Abi Quhaafah ture.
+ id:"abu-bakr",
+ name:"Abuu Bakr As-Siddiiq",
+ arabic:"أبو بكر الصديق رضي الله عنه",
+ aliases:[
+   "Abu Bakr",
+   "Abubakar",
+   "Abuu Bakr",
+   "As Siddiq",
+   "الصديق",
+   "أبو بكر"
+ ],
+ category:["Khulafaa","Muhajir"],
+ icon:"⭐",
+ short:"Khaliifaa jalqabaa Muslimootaa fi nama Nabiyyii ﷺ waliin baay’ee dhihoo ture.",
+ story:`
+Abuu Bakr As-Siddiiq رضي الله عنه sahaabota beekamoo keessaa tokko ture.
+Inni nama Islaama jalqabatti amane keessaa tokko ture.
 
-Inni namoota jalqabaa keessaa kan Nabii Muhammad ﷺ amanee Islaama
-seene ture.
+Nabiyyii Muhammad ﷺ waliin yeroo rakkinaa fi yeroo gammachuu hedduu keessa darbe.
+Hijraa gara Madiinaa keessatti Nabiyyii ﷺ waliin ture.
 
-Abu Bakr رضي الله عنه yeroo rakkoo keessatti Nabii ﷺ cinaa dhaabbate.
-Hijraa gara Madiinaa keessatti Nabii Muhammad ﷺ waliin ture.
+Erga Nabiyyiin ﷺ du’anii booda Abuu Bakr khaliifaa jalqabaa Muslimootaa ta’e.
+Yeroo khilaafaa isaa keessatti Muslimoota walitti qabuu fi Islaama tikfachuuf hojii guddaa hojjete.
 
-Erga Nabii Muhammad ﷺ du'anii booda, Abu Bakr رضي الله عنه
-khaliifaa jalqabaa Muslimootaa ta'e.
-
-Inni amanamummaa, obsa, sadaqaa fi sodaa Rabbii isaatiin beekama.
-`
+Inni amanamummaa, dhugaa dubbachuu, sadaqaa fi jaalala Nabiyyii ﷺ irratti fakkeenya guddaa ture.
+`,
+ lessons:[
+   "Dhugaa irratti cichuu.",
+   "Nama gaarii waliin ta’uu.",
+   "Yeroo rakkoo Islaamaaf dhaabbachuu.",
+   "Qabeenya fi humna namaa kheeyrii keessatti fayyadamu."
+ ],
+ source:"Seenaa sahaabaa fi maddoota tarajim al-Sahaabah."
 },
 
 {
-name:"Umar ibn Al-Khattab رضي الله عنه",
-short:"Khaliifaa lammaffaa, haqaa fi jabaatinaa isaatiin beekama.",
-image:"https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&w=900&q=80",
-story:`
-Umar ibn Al-Khattab رضي الله عنه sahaabaa guddaa fi khaliifaa
-lammaffaa Muslimootaa ture.
+ id:"umar",
+ name:"Umar ibn Al-Khattab",
+ arabic:"عمر بن الخطاب رضي الله عنه",
+ aliases:[
+   "Umar",
+   "Omar",
+   "Umar ibn Khattab",
+   "Al Farooq",
+   "الفاروق",
+   "عمر بن الخطاب"
+ ],
+ category:["Khulafaa","Muhajir"],
+ icon:"⚔️",
+ short:"Khaliifaa lammaffaa; haqaa fi murtii sirrii irratti beekamaa ture.",
+ story:`
+Umar ibn Al-Khattab رضي الله عنه sahaaba guddaa fi khaliifaa lammaffaa ture.
 
-Jalqabarratti Islaama irratti mormii qabaatus, yeroo booda Islaama
-seenee Muslimootaaf humna guddaa ta'e.
+Islaamni isaa Muslimootaaf jajjabina guddaa ta’e.
+Erga Islaama seenee booda Muslimoonni amantii isaanii ifatti mul’isuuf jabina argatan.
 
-Erga Islaama seenee booda Muslimoonni ifatti ibaadaa isaanii
-raawwachuu keessatti jabaatan.
+Yeroo khilaafaa isaa keessatti mootummaa Islaamaa bal’isuun qofa osoo hin taane,
+haqa, itti-gaafatamummaa fi tajaajila uummataa irratti xiyyeeffate.
 
-Umar رضي الله عنه haqaan murteessuu, soda Rabbii fi of-qorannoo
-isaatiin beekama.
-
-Khaliifummaa isaa keessatti bulchiinsi Muslimootaa bal'inaan babal'ate.
-`
+Umar رضي الله عنه nama of gaafatu, haqaan murteessu fi dadhabaa gargaaruuf yaalu ture.
+`,
+ lessons:[
+   "Haqa irratti dhaabbachuu.",
+   "Itti-gaafatamummaa sodaachuu.",
+   "Nama dadhabaa gargaaruu.",
+   "Murtii keessatti loogii irraa fagaachuu."
+ ],
+ source:"Tarajim al-Sahaabah."
 },
 
 {
-name:"Uthmaan ibn Affaan رضي الله عنه",
-short:"Khaliifaa sadaffaa fi nama Qur'aana walitti qabsiisuu keessatti gahee guddaa qabu.",
-image:"https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=900&q=80",
-story:`
-Uthmaan ibn Affaan رضي الله عنه sahaabaa kabajamaa fi khaliifaa
-sadaffaa Muslimootaa ture.
+ id:"uthman",
+ name:"Uthmaan ibn Affaan",
+ arabic:"عثمان بن عفان رضي الله عنه",
+ aliases:[
+   "Uthman",
+   "Osman",
+   "Usman",
+   "Uthmaan",
+   "Dhun Nurayn",
+   "ذو النورين",
+   "عثمان بن عفان"
+ ],
+ category:["Khulafaa","Muhajir"],
+ icon:"📖",
+ short:"Khaliifaa sadaffaa; Qur’aana walitti qabuu fi sadaqaa hedduun beekamaa ture.",
+ story:`
+Uthmaan ibn Affaan رضي الله عنه sahaaba beekamaa fi khaliifaa sadaffaa ture.
 
-Inni nama qabeenya isaa karaa Rabbii keessatti baay'ee sadaqatu ture.
+Inni nama qabeenya isaa Islaamaaf baay’ee kennu ture.
+Yeroo rakkoo Muslimootaa keessatti qabeenya isaa fayyadamuun nama beekamaa ture.
 
-Uthmaan رضي الله عنه Nabii Muhammad ﷺ irraa kabaja guddaa qaba ture.
+Yeroo khilaafaa isaa keessatti Qur’aana qira'aa fi barreessuu irratti Muslimoonni garaagarummaa akka hin uumneef,
+mushafota qindaa’anii gara naannolee adda addaatti erguun hojii guddaa raawwatame.
 
-Yeroo khaliifaa ta'ee turetti, Qur'aana qira'aa irratti walitti bu'iinsi
-akka hin uumamneef mushafota sirna tokkoon qopheessuu keessatti
-gahee guddaa qaba.
-
-Inni nama haya'a fi gaarummaa isaatiin beekamu ture.
-`
+Uthmaan رضي الله عنه nama haya, sadaqaa fi obsaan beekamaa ture.
+`,
+ lessons:[
+   "Qabeenya kheeyrii keessatti fayyadamu.",
+   "Qur’aana kabajuu.",
+   "Haya qabaachuu.",
+   "Yeroo rakkoo obsuu."
+ ],
+ source:"Tarajim al-Sahaabah."
 },
 
 {
-name:"Ali ibn Abi Taalib رضي الله عنه",
-short:"Ilma abbeeraa Nabii ﷺ, abbaa warraa Faaximaa رضي الله عنها fi khaliifaa afraffaa.",
-image:"https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=900&q=80",
-story:`
-Ali ibn Abi Taalib رضي الله عنه ilma abbeeraa Nabii Muhammad ﷺ ture.
+ id:"ali",
+ name:"Ali ibn Abi Taalib",
+ arabic:"علي بن أبي طالب رضي الله عنه",
+ aliases:[
+   "Ali",
+   "Ali ibn Abi Talib",
+   "Ali bin Abi Talib",
+   "علي",
+   "علي بن أبي طالب"
+ ],
+ category:["Khulafaa","Muhajir"],
+ icon:"🕌",
+ short:"Khaliifaa afraffaa fi miseensa maatii Nabiyyii ﷺ keessaa nama beekamaa.",
+ story:`
+Ali ibn Abi Taalib رضي الله عنه ilma abbeeraa Nabiyyii ﷺ fi abbaa manaa Faaximaa رضي الله عنها ture.
 
-Inni ijoollee keessaa namoota jalqabaa Islaama fudhatan keessaa tokko.
+Inni ijoollee keessaa warra jalqabatti Islaama fudhatan keessaa tokko ture.
+Jabina, beekumsa fi gootummaa isaatiin beekamaa ture.
 
-Ali رضي الله عنه beekumsa, gootummaa fi murtii sirrii isaatiin
-beekama.
+Yeroo Nabiyyii ﷺ Madiinaa godaanan, Ali رضي الله عنه hojiiwwan murteessoo keessatti hirmaate.
 
-Inni Faaximaa رضي الله عنها, intala Nabii Muhammad ﷺ, fuudhe.
-
-Erga Uthmaan رضي الله عنه du'ee booda, Ali رضي الله عنه
-khaliifaa afraffaa Muslimootaa ta'e.
-`
+Erga Uthmaan رضي الله عنه du’anii booda Muslimoonni Ali رضي الله عنه khaliifaa afraffaa godhatan.
+`,
+ lessons:[
+   "Beekumsa barbaaduu.",
+   "Gootummaa qabaachuu.",
+   "Maatii fi amantii tiksuu.",
+   "Haqa barbaaduu."
+ ],
+ source:"Tarajim al-Sahaabah."
 },
 
 {
-name:"Bilal ibn Rabaah رضي الله عنه",
-short:"Mu'azzina Nabii Muhammad ﷺ fi nama obsaa guddaa qabu.",
-image:"https://images.unsplash.com/photo-1564769662533-4f00a87b4056?auto=format&fit=crop&w=900&q=80",
-story:`
-Bilal ibn Rabaah رضي الله عنه sahaabaa beekamaa ture.
+ id:"bilal",
+ name:"Bilaal ibn Rabaah",
+ arabic:"بلال بن رباح رضي الله عنه",
+ aliases:[
+   "Bilal",
+   "Bilaal",
+   "Bilal Habashi",
+   "بلال الحبشي",
+   "بلال بن رباح"
+ ],
+ category:["Muhajir"],
+ icon:"🌙",
+ short:"Mu’azzina Nabiyyii ﷺ fi nama Islaama irratti jabaatee dhaabbate.",
+ story:`
+Bilaal ibn Rabaah رضي الله عنه sahaaba beekamaa ture.
+Inni sababa Islaama fudhachuu isaatiin rakkoo fi dararaa guddaa keessa darbe.
 
-Inni garbummaa keessa ture. Islaama erga fudhatee booda,
-sababa amantii isaatiin dararamaa ture.
+Garuu amantii isaa irraa hin deebi’in.
+Jechi isaa yeroo rakkoo keessatti beekamaan "Ahad, Ahad" jechuun tawhiida irratti cichuu isaa agarsiisa.
 
-Abu Bakr رضي الله عنه isa bilisa baasuuf gatii isaa kaffale.
-
-Bilal رضي الله عنه yeroo Nabii Muhammad ﷺ jirutti mu'azzina
-beekamaa ture.
-
-Sagalee isaa adhaanaatiin Muslimoota waamaa ture.
-
-Seenaa isaa keessatti obsaa fi jabaachuun fakkeenya guddaa dha.
-`
+Erga bilisa bahee booda Nabiyyii ﷺ irraa baay’ee dhihoo ture.
+Inni mu’azzina Nabiyyii ﷺ keessaa isa beekamaa ture.
+`,
+ lessons:[
+   "Tawhiida irratti cichuu.",
+   "Rakkoo keessatti amantii hin dhiisuu.",
+   "Obsa qabaachuu.",
+   "Allah irratti hirkachuu."
+ ],
+ source:"Seenaa sahaabaa fi tarajim al-Sahaabah."
 },
 
 {
-name:"Salmaan Al-Faarisii رضي الله عنه",
-short:"Sahaabaa beekamaa, nama dhugaa barbaaduu fi hikmaa isaatiin beekamu.",
-image:"https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=900&q=80",
-story:`
-Salmaan Al-Faarisii رضي الله عنه biyya Faarsi irraa dhufe.
+ id:"salman",
+ name:"Salmaan Al-Faarisii",
+ arabic:"سلمان الفارسي رضي الله عنه",
+ aliases:[
+   "Salman",
+   "Salman Al Farisi",
+   "Salmaan",
+   "سلمان الفارسي",
+   "سلمان"
+ ],
+ category:["Muhajir"],
+ icon:"🌍",
+ short:"Nama dhugaa barbaachaaf imala dheeraa godhee Islaama bira gahe.",
+ story:`
+Salmaan Al-Faarisii رضي الله عنه dhugaa barbaachaaf imala dheeraa godhe.
 
-Inni dhugaa barbaaduuf jireenya isaa keessatti imala dheeraa
-raawwate.
+Inni amantii fi beekumsa dhugaa barbaaduun bakka gara garaa keessa darbe.
+Dhumarratti Madiinaa gahee Nabiyyii Muhammad ﷺ argate.
 
-Yeroo Nabii Muhammad ﷺ argate, mallattoolee nabiyyummaa
-hubatee Islaama fudhate.
-
-Salmaan رضي الله عنه beekumsa fi yaada isaa irratti beekamaa ture.
-
-Lola Khandaq keessatti yaada boolla qotaa jedhu dhiyeessuun
-Muslimootaaf gargaarsa guddaa ta'e.
-`
+Islaama fudhatee sahaaba beekamaa ta’e.
+Yeroo Ghazwata Khandaq, yaada qotaa (khandaq) naannoo Madiinaa qazuu dhiyeessuun isaa seenaa keessatti beekama.
+`,
+ lessons:[
+   "Dhugaa barbaaduu.",
+   "Beekumsaaf imala godhuu.",
+   "Obsa qabaachuu.",
+   "Yaada gaarii kennuu."
+ ],
+ source:"Tarajim al-Sahaabah."
 },
 
 {
-name:"Abu Hurayrah رضي الله عنه",
-short:"Sahaabaa hadiisa hedduu Nabii ﷺ irraa dabarse.",
-image:"https://images.unsplash.com/photo-1542816417-0983674e1c7b?auto=format&fit=crop&w=900&q=80",
-story:`
-Abu Hurayrah رضي الله عنه sahaabota hadiisa hedduu dabarsan keessaa
-isa beekamaa dha.
+ id:"abu-hurayra",
+ name:"Abuu Hurayrah",
+ arabic:"أبو هريرة رضي الله عنه",
+ aliases:[
+   "Abu Huraira",
+   "Abu Hurayrah",
+   "Abuu Hurayra",
+   "أبو هريرة"
+ ],
+ category:["Hadith"],
+ icon:"📚",
+ short:"Sahaaba hadiisa Nabiyyii ﷺ hedduu dabarse.",
+ story:`
+Abuu Hurayrah رضي الله عنه sahaaba beekamaa fi nama hadiisa hedduu dabarse ture.
 
-Inni Nabii Muhammad ﷺ waliin yeroo muraasa keessatti beekumsa
-baay'ee barate.
+Inni Nabiyyii ﷺ waliin yeroo hedduu turee waan isaan irraa dhagahe yaadachuun dabarsa ture.
 
-Yaadannoo cimaa qaba ture.
-
-Hadiisota Nabii Muhammad ﷺ irraa dhageenye hedduu ummataaf
-dabarse.
-
-Kanaafuu, barattoota hadiisaaf maqaan Abu Hurayrah رضي الله عنه
-baay'ee beekamaa dha.
-`
+Beekumsa barbaaduu fi hadiisa eegu irratti fakkeenya guddaa ture.
+Sababni isaas, barattoonni hadiisaa maqaa isaa hadiisa hedduu keessatti argatu.
+`,
+ lessons:[
+   "Hadiisa barachuu.",
+   "Beekumsa yaadachuu fi dabarsuu.",
+   "Barnoota irratti jabaachuu.",
+   "Beekumsa nama biraaf dabarsuu."
+ ],
+ source:"Muslim Scholars Database keessatti Abuu Hurayrah sahaaba fi narrator jedhamee galmaa’eera. 1"
 },
 
 {
-name:"Mus'ab ibn Umayr رضي الله عنه",
-short:"Daa'ii fi sahaabaa dargaggeessa Islaama Madiinaa keessatti barsiise.",
-image:"https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&w=900&q=80",
-story:`
-Mus'ab ibn Umayr رضي الله عنه dargaggeessa Makkaa keessatti
-jireenya qananii qabu ture.
+ id:"khalid",
+ name:"Khaalid ibn Al-Waliid",
+ arabic:"خالد بن الوليد رضي الله عنه",
+ aliases:[
+   "Khalid",
+   "Khalid ibn Walid",
+   "Khaalid",
+   "Saifullah",
+   "سيف الله",
+   "خالد بن الوليد"
+ ],
+ category:["Muhajir"],
+ icon:"🛡️",
+ short:"Gootummaa fi hoggansa waraanaa isaatiin beekamaa; Saifullaah jedhamee waamama.",
+ story:`
+Khaalid ibn Al-Waliid رضي الله عنه sahaaba beekamaa fi hogganaa waraanaa ture.
 
-Yeroo Islaama fudhatu, jireenyi isaa guutumaan guutuutti jijjiirame.
+Islaama booda Muslimootaaf hojiiwwan waraanaa keessatti hirmaate.
+Hoggansa, qophii fi murtii yeroo rakkoo keessatti fudhatuun beekamaa ture.
 
-Nabii Muhammad ﷺ isa gara Madiinaa ergee namoota Islaama
-barsiisuuf itti gaafatamummaa kenne.
-
-Mus'ab رضي الله عنه da'awaa keessatti gahee guddaa qaba.
-
-Lola Uhud keessatti shahidame.
-`
+Maddoota tarajim keessatti maqaan isaa "Sayfullaah" waliin ibsama.
+`,
+ lessons:[
+   "Hoggansa keessatti itti-gaafatamummaa qabaachuu.",
+   "Qophii gaarii gochuu.",
+   "Jabina sirrii keessatti fayyadamu.",
+   "Jireenya keessatti jijjiirama gaarii fudhachuu."
+ ],
+ source:"Muslim Scholars Database, tarjamah Khaalid ibn al-Waliid. 2"
 },
 
 {
-name:"Khaalid ibn Al-Waliid رضي الله عنه",
-short:"Goota beekamaa fi ajajaa waraanaa Muslimootaa.",
-image:"https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=80",
-story:`
-Khaalid ibn Al-Waliid رضي الله عنه sahaabaa gootummaa isaatiin
-beekamaa dha.
+ id:"musab",
+ name:"Mus'ab ibn Umayr",
+ arabic:"مصعب بن عمير رضي الله عنه",
+ aliases:[
+   "Musab",
+   "Mus'ab",
+   "Musab ibn Umayr",
+   "مصعب بن عمير"
+ ],
+ category:["Muhajir"],
+ icon:"📜",
+ short:"Daa’ii fi nama Islaama Madiinaa keessatti barsiisuu keessatti gahee guddaa qabu.",
+ story:`
+Mus'ab ibn Umayr رضي الله عنه dargaggeessa Makkaa keessaa nama jireenya qananii qabu ture.
 
-Inni waraana keessatti dandeettii ajajummaa guddaa qaba ture.
+Islaama erga fudhatee booda rakkoo hedduu keessa darbe.
+Nabiyyii ﷺ isa gara Madiinaa erguun, namoota Islaama barsiisuu fi Qur’aana isaan barsiisuu keessatti gahee guddaa qabaate.
 
-Erga Islaama seenee booda Muslimootaaf lola hedduu keessatti
-gahee qaba.
-
-Nabii Muhammad ﷺ maqaa "Sayfullaah" jechuun kabaje.
-
-Khaalid رضي الله عنه jireenya isaa keessatti Islaamaaf tajaajila
-guddaa kenne.
-`
+Inni fakkeenya nama dargaggummaa isaa beekumsa fi da’awaaf oolcheeti.
+`,
+ lessons:[
+   "Dargaggummaa kheeyrii keessatti fayyadamu.",
+   "Da’awaa beekumsa waliin gochuu.",
+   "Qur’aana barsiisuu.",
+   "Qananii irraa fagaachuu yeroo amantiin gaafatu."
+ ],
+ source:"Tarajim al-Sahaabah."
 },
 
 {
-name:"Sa'd ibn Abi Waqqaas رضي الله عنه",
-short:"Sahaabaa jalqabaa Islaama fudhatan keessaa tokko fi nama du'aa'iin isaa beekamu.",
-image:"https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=900&q=80",
-story:`
-Sa'd ibn Abi Waqqaas رضي الله عنه sahaabaa beekamaa ture.
+ id:"saad",
+ name:"Sa'd ibn Abi Waqqaas",
+ arabic:"سعد بن أبي وقاص رضي الله عنه",
+ aliases:[
+   "Saad",
+   "Sa'd ibn Abi Waqqas",
+   "Saad ibn Abi Waqqas",
+   "سعد بن أبي وقاص"
+ ],
+ category:["Muhajir","Khulafaa"],
+ icon:"🏹",
+ short:"Sahaaba beekamaa, keessaa warra Jannataan gammachiifaman keessaa tokko.",
+ story:`
+Sa'd ibn Abi Waqqaas رضي الله عنه sahaaba beekamaa fi nama Islaama jalqabatti fudhatee keessaa tokko ture.
 
-Inni namoota jalqabaa Islaama fudhatan keessaa tokko.
+Inni gootummaa fi du'aa'iin beekamaa ture.
+Seenaa Islaamaa keessatti gahee waraanaa fi hoggansa qaba.
 
-Lola hedduu keessatti Muslimoota waliin hirmaate.
+Maqaan isaa warra Nabiyyiin ﷺ Jannataan gammachiisan keessaa tokko ta'ee tarajim keessatti beekama.
+`,
+ lessons:[
+   "Amantii irratti cichuu.",
+   "Du'aa'ii namaaf godhuu.",
+   "Hoggansa keessatti amanamummaa qabaachuu.",
+   "Jabina kheeyrii keessatti fayyadamu."
+ ],
+ source:"Tarajim al-Sahaabah."
+},
 
-Sa'd رضي الله عنه xiyya darbuu keessatti dandeettii qaba ture.
+{
+ id:"talha",
+ name:"Talhah ibn Ubaydillaah",
+ arabic:"طلحة بن عبيد الله رضي الله عنه",
+ aliases:[
+   "Talha",
+   "Talhah",
+   "Talha ibn Ubaydillah",
+   "طلحة بن عبيد الله"
+ ],
+ category:["Muhajir","Khulafaa"],
+ icon:"⭐",
+ short:"Sahaaba beekamaa fi warra Jannataan gammachiifaman keessaa tokko.",
+ story:`
+Talhah ibn Ubaydillaah رضي الله عنه nama Islaama jalqabatti fudhatee keessaa tokko ture.
 
-Akkasumas, du'aa'iin isaa akka fudhatamu ilaalchisee seenaa
-beekamaa qaba.
-`
+Inni Nabiyyii ﷺ tiksuu fi Muslimoota gargaaruu keessatti gahee qaba.
+Gootummaa fi sadaqaa isaatiin beekamaa ture.
+
+Inni warra Nabiyyiin ﷺ Jannataan gammachiisan keessaa tokko.
+`,
+ lessons:[
+   "Nabiyyii ﷺ jaallachuu.",
+   "Nama gargaaruu.",
+   "Qabeenya kheeyrii keessatti oolchuu.",
+   "Gootummaa sirriitti fayyadamu."
+ ],
+ source:"Tarajim al-Sahaabah."
+},
+
+{
+ id:"zubayr",
+ name:"Az-Zubayr ibn Al-Awwaam",
+ arabic:"الزبير بن العوام رضي الله عنه",
+ aliases:[
+   "Zubair",
+   "Zubayr",
+   "Az Zubair",
+   "الزبير بن العوام"
+ ],
+ category:["Muhajir","Khulafaa"],
+ icon:"🛡️",
+ short:"Sahaaba beekamaa fi warra Jannataan gammachiifaman keessaa tokko.",
+ story:`
+Az-Zubayr ibn Al-Awwaam رضي الله عنه sahaaba Nabiyyii ﷺ irraa beekamaa ture.
+
+Inni Islaama jalqabatti fudhate.
+Gootummaa fi Nabiyyii ﷺ tiksuuf qophii qabaachuun isaa seenaa keessatti beekama.
+
+Inni warra Jannataan gammachiifaman keessaa tokko.
+`,
+ lessons:[
+   "Amantii irratti jabaachuu.",
+   "Nama haqaa tiksuu.",
+   "Gootummaa sirriitti fayyadamu.",
+   "Nabiyyii ﷺ jaallachuu."
+ ],
+ source:"Tarajim al-Sahaabah."
+},
+
+{
+ id:"abu-ubaydah",
+ name:"Abuu Ubaydah ibn Al-Jarraah",
+ arabic:"أبو عبيدة بن الجراح رضي الله عنه",
+ aliases:[
+   "Abu Ubaidah",
+   "Abu Ubayda",
+   "Abuu Ubaydah",
+   "أبو عبيدة بن الجراح"
+ ],
+ category:["Muhajir","Khulafaa"],
+ icon:"🛡️",
+ short:"Amanamummaa fi hoggansa isaatiin beekamaa; warra Jannataan gammachiifaman keessaa tokko.",
+ story:`
+Abuu Ubaydah ibn Al-Jarraah رضي الله عنه sahaaba beekamaa ture.
+
+Amanamummaa fi amala gaarii isaatiin beekamaa ture.
+Nabiyyii ﷺ irraa jaalala fi amanamummaa argate.
+
+Inni warra Jannataan gammachiifaman keessaa tokko.
+Hoggansa waraanaa keessatti gahee qabaatee Muslimootaaf tajaajila guddaa kenne.
+`,
+ lessons:[
+   "Amanamummaa qabaachuu.",
+   "Nama biraa tajaajiluu.",
+   "Hoggansa keessatti of tuulummaa irraa fagaachuu.",
+   "Amantii fi hojii walitti fiduu."
+ ],
+ source:"Tarajim al-Sahaabah."
+},
+
+{
+ id:"anas",
+ name:"Anas ibn Maalik",
+ arabic:"أنس بن مالك رضي الله عنه",
+ aliases:[
+   "Anas",
+   "Anas ibn Malik",
+   "Anas bin Malik",
+   "أنس بن مالك"
+ ],
+ category:["Ansaar","Hadith"],
+ icon:"📚",
+ short:"Sahaaba Ansaar keessaa fi nama Nabiyyii ﷺ tajaajile; hadiisa hedduu dabarse.",
+ story:`
+Anas ibn Maalik رضي الله عنه sahaaba Ansaar keessaa ture.
+
+Inni yeroo dheeraa Nabiyyii Muhammad ﷺ tajaajile.
+Yeroo Nabiyyii ﷺ waliin turetti amala isaanii fi jechoota isaanii hedduu yaadate.
+
+Booda hadiisa Nabiyyii ﷺ dabarsuu keessatti gahee guddaa qabaate.
+`,
+ lessons:[
+   "Nama gaarii tajaajiluu.",
+   "Hadiisa fi beekumsa eegu.",
+   "Amala gaarii irraa barachuu.",
+   "Barnoota dhaloota itti aanuuf dabarsuu."
+ ],
+ source:"Muslim Scholars Database keessatti Anas ibn Malik sahaaba fi narrator jedhamee tarreeffameera. 3"
+},
+
+{
+ id:"muadh",
+ name:"Mu'aadh ibn Jabal",
+ arabic:"معاذ بن جبل رضي الله عنه",
+ aliases:[
+   "Muadh",
+   "Mu'adh",
+   "Muadh ibn Jabal",
+   "معاذ بن جبل"
+ ],
+ category:["Ansaar","Hadith"],
+ icon:"📚",
+ short:"Sahaaba beekumsa fi fiqh irratti beekamaa ture.",
+ story:`
+Mu'aadh ibn Jabal رضي الله عنه sahaaba beekumsa Islaamaa irratti beekamaa ture.
+
+Inni Qur’aanaa fi ahkaama Islaamaa barachuu fi barsiisuu keessatti gahee qaba.
+Nabiyyii ﷺ irraa beekumsa fudhatee nama biraatti dabarse.
+
+Inni fakkeenya barataa beekumsa isaa hojii fi barsiisuu keessatti fayyadamuuti.
+`,
+ lessons:[
+   "Beekumsa barbaaduu.",
+   "Waan baratan hojii irra oolchuu.",
+   "Nama biraa barsiisuu.",
+   "Gaaffii keessatti hubannoo barbaaduu."
+ ],
+ source:"Tarajim al-Sahaabah."
+},
+
+{
+ id:"abu-ayyub",
+ name:"Abuu Ayyuub Al-Ansaarii",
+ arabic:"أبو أيوب الأنصاري رضي الله عنه",
+ aliases:[
+   "Abu Ayyub",
+   "Abu Ayyub Al Ansari",
+   "Abuu Ayyuub",
+   "أبو أيوب الأنصاري"
+ ],
+ category:["Ansaar"],
+ icon:"🏠",
+ short:"Sahaaba Ansaar keessaa; Nabiyyii ﷺ yeroo Madiinaa seenan keessummeesse.",
+ story:`
+Abuu Ayyuub Al-Ansaarii رضي الله عنه sahaaba Ansaar keessaa nama beekamaa ture.
+
+Yeroo Nabiyyii ﷺ gara Madiinaa godaanan, mana isaa keessatti keessummeessuun kabaja guddaa argate.
+
+Inni jaalala Nabiyyii ﷺ fi Muslimootaaf tajaajila kennuun beekamaa ture.
+`,
+ lessons:[
+   "Keessummaa kabajuu.",
+   "Nama gaarii simachuu.",
+   "Muslimoota gargaaruu.",
+   "Jaalala fi obbolummaa cimsuu."
+ ],
+ source:"Tarajim al-Sahaabah."
+},
+
+{
+ id:"ubayy",
+ name:"Ubayy ibn Ka'b",
+ arabic:"أُبَيّ بن كعب رضي الله عنه",
+ aliases:[
+   "Ubayy",
+   "Ubay ibn Kaab",
+   "Ubayy ibn Kab",
+   "أبي بن كعب",
+   "أُبَيّ بن كعب"
+ ],
+ category:["Ansaar","Hadith"],
+ icon:"📖",
+ short:"Sahaaba Qur’aana qara’uu fi barsiisuu irratti beekamaa ture.",
+ story:`
+Ubayy ibn Ka'b رضي الله عنه sahaaba Ansaar keessaa fi nama Qur’aana irratti beekamaa ture.
+
+Inni Qur’aana Nabiyyii ﷺ irraa fudhatee qara'aa fi barsiisuu keessatti gahee guddaa qaba.
+Maqaan isaa tarajim sahaabaa beekamoo keessatti argama.
+`,
+ lessons:[
+   "Qur’aana barachuu.",
+   "Qur’aana qara’uu.",
+   "Qur’aana barsiisuu.",
+   "Beekumsa dhaloota itti aanuuf dabarsuu."
+ ],
+ source:"Muslim Scholars Database keessatti Ubayy ibn Ka'b sahaaba keessaa tarreeffameera. 4"
+},
+
+{
+ id:"aisha",
+ name:"Aa'ishah bint Abii Bakr",
+ arabic:"عائشة بنت أبي بكر رضي الله عنها",
+ aliases:[
+   "Aisha",
+   "Aishah",
+   "Aa'isha",
+   "Aisha bint Abi Bakr",
+   "عائشة",
+   "عائشة بنت أبي بكر"
+ ],
+ category:["Hadith"],
+ icon:"📚",
+ short:"Haadha Mu’umintootaa fi nama hadiisaa fi beekumsa Islaamaa hedduu dabarsite.",
+ story:`
+Aa'ishah رضي الله عنها haadha Mu’umintootaa fi intala Abuu Bakr رضي الله عنه turte.
+
+Inni tokko warra beekumsa Islaamaa fi hadiisaa keessatti gahee guddaa qaban keessaa ishee ti.
+Sahaabonni fi namoonni booda dhufan gaaffiiwwan amantii fi jireenyaa hedduu ishee gaafatu turan.
+
+Hadiisa fi beekumsa ishee irraa Muslimoonni dhaloota hedduu fayyadaman.
+`,
+ lessons:[
+   "Barnoota Islaamaa gadi fageenyaan barachuu.",
+   "Gaaffii gaafachuu.",
+   "Beekumsa nama biraaf dabarsuu.",
+   "Qur’aanaa fi Sunnah hubachuu."
+ ],
+ source:"Muslim Scholars Database keessatti Aa'ishah bint Abi Bakr sahaaba keessaa tarreeffamteetti. 5"
+},
+
+{
+ id:"asma",
+ name:"Asmaa' bint Abii Bakr",
+ arabic:"أسماء بنت أبي بكر رضي الله عنها",
+ aliases:[
+   "Asma",
+   "Asmaa",
+   "Asma bint Abi Bakr",
+   "أسماء بنت أبي بكر"
+ ],
+ category:["Muhajir"],
+ icon:"🌙",
+ short:"Obboleettii Aa'ishah fi dubartii sahaabaa jabaataa keessaa tokko.",
+ story:`
+Asmaa' bint Abii Bakr رضي الله عنها dubartoota sahaabaa beekamoo keessaa tokko turte.
+
+Yeroo hijraa Nabiyyii ﷺ fi Abuu Bakr رضي الله عنه keessatti maatii fi Muslimoota gargaaruu keessatti gahee qabdi.
+
+Jabina, obsa fi amanamummaa isheetiin fakkeenya guddaa taate.
+`,
+ lessons:[
+   "Yeroo rakkoo nama gargaaruu.",
+   "Amanamummaa qabaachuu.",
+   "Obsa qabaachuu.",
+   "Maatii fi amantii tiksuu."
+ ],
+ source:"Tarajim al-Sahaabah."
 }
 
 ];
 
-const list = document.getElementById("sahabaList");
 
-function showList(data){
+/* =========================
+   NORMALIZE SEARCH
+========================= */
 
-  list.innerHTML = "";
+function normalize(text){
 
-  if(data.length === 0){
-    list.innerHTML =
-      '<div class="empty">Sahaabaan ati barbaadde hin argamne.</div>';
-    return;
-  }
-
-  data.forEach((s,index)=>{
-
-    const card = document.createElement("div");
-
-    card.className = "card";
-
-    card.innerHTML = `
-      <img
-        class="card-image"
-        src="${s.image}"
-        alt="${s.name}"
-        onerror="this.style.display='none'"
-      >
-
-      <div class="card-content">
-
-        <h3>${s.name}</h3>
-
-        <p>${s.short}</p>
-
-        <button
-          class="read-btn"
-          onclick="openStory(${index})">
-          📖 Seenaa Dubbisi
-        </button>
-
-      </div>
-    `;
-
-    list.appendChild(card);
-
-  });
+  return text
+    .toString()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .replace(/[\u064B-\u065F\u0670]/g,"")
+    .replace(/ـ/g,"")
+    .replace(/[’']/g,"")
+    .trim();
 
 }
 
-function openStory(index){
 
-  const s = sahaba[index];
+/* =========================
+   RENDER LIST
+========================= */
 
-  document.getElementById("homePage").style.display = "none";
+function renderList(list){
 
-  document.getElementById("detailPage").style.display = "block";
+  const container = document.getElementById("sahabaList");
 
-  document.getElementById("search").style.display = "none";
+  document.getElementById("resultInfo").innerHTML =
+    `<div class="info">📚 <b>${list.length}</b> seenaa argame.</div>`;
 
-  document.getElementById("detailContent").innerHTML = `
+  if(list.length === 0){
 
-    <img
-      src="${s.image}"
-      alt="${s.name}"
-      onerror="this.style.display='none'"
-    >
+    container.innerHTML = `
+      <div class="empty">
+        <div>🔎</div>
+        <h2>Hin argamne</h2>
+        <p>Maqaa sahaabaa sirriitti barreessi.</p>
+        <p>Fakkeenya: Abu Bakr, Umar, Bilal, Aisha</p>
+      </div>
+    `;
 
-    <h2>${s.name}</h2>
+    return;
+  }
 
-    <h3>📖 Seenaa isaa</h3>
+  container.innerHTML = list.map(item => `
 
-    ${s.story
-      .trim()
-      .split("\\n")
-      .map(p => p.trim() ? `<p>${p.trim()}</p>` : "")
-      .join("")
-    }
+    <div class="card" onclick="openStory('${item.id}')">
 
-    <h3>🤲 Barumsa irraa argannu</h3>
+      <div class="avatar">${item.icon}</div>
 
-    <p>
-      Seenaa sahaabota رضي الله عنهم irraa amantii,
-      obsa, amanamummaa, ibaadaa, beekumsa fi
-      Islaamaaf tajaajiluu barachuu dandeenya.
-    </p>
+      <h2>${item.name}</h2>
 
-    <div class="arabic">
-      رَضِيَ اللهُ عَنْهُمْ وَرَضُوا عَنْهُ
+      <div class="arabic">
+        ${item.arabic}
+      </div>
+
+      ${item.category.map(c =>
+        `<span class="tag">${c}</span>`
+      ).join(" ")}
+
+      <p>${item.short}</p>
+
+    </div>
+
+  `).join("");
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+let currentCategory = "Hundaa";
+
+function searchSahaba(){
+
+  const query =
+    normalize(document.getElementById("searchInput").value);
+
+  let results = sahaba;
+
+  if(currentCategory !== "Hundaa"){
+
+    results = results.filter(item =>
+      item.category.includes(currentCategory)
+    );
+
+  }
+
+  if(query !== ""){
+
+    results = results.filter(item => {
+
+      const text = normalize(`
+        ${item.name}
+        ${item.arabic}
+        ${item.aliases.join(" ")}
+        ${item.short}
+        ${item.story}
+        ${item.category.join(" ")}
+      `);
+
+      return text.includes(query);
+
+    });
+
+  }
+
+  renderList(results);
+
+}
+
+
+/* =========================
+   CATEGORY
+========================= */
+
+function filterCategory(category,button){
+
+  currentCategory = category;
+
+  document
+    .querySelectorAll(".categories button")
+    .forEach(btn => btn.classList.remove("active"));
+
+  button.classList.add("active");
+
+  searchSahaba();
+
+}
+
+
+/* =========================
+   OPEN STORY
+========================= */
+
+function openStory(id){
+
+  const item = sahaba.find(x => x.id === id);
+
+  if(!item) return;
+
+  document.getElementById("home").style.display = "none";
+
+  const detail = document.getElementById("detail");
+
+  detail.style.display = "block";
+
+  const paragraphs = item.story
+    .trim()
+    .split(/\n\s*\n/)
+    .map(p => `<p>${p.trim()}</p>`)
+    .join("");
+
+  detail.innerHTML = `
+
+    <button class="backBtn" onclick="goHome()">
+      ← Gara
+    </button>
+
+    <div class="detailCard">
+
+      <div class="detailAvatar">
+        ${item.icon}
+      </div>
+
+      <h1>${item.name}</h1>
+
+      <div class="detailArabic">
+        ${item.arabic}
+      </div>
+
+      <div>
+        ${item.category.map(c =>
+          `<span class="tag">${c}</span>`
+        ).join(" ")}
+      </div>
+
+      <div class="section">
+
+        <h3>📖 Seenaa isaa/ishee</h3>
+
+        ${paragraphs}
+
+      </div>
+
+      <div class="section">
+
+        <h3>💡 Barumsa irraa argannu</h3>
+
+        <ul class="lessons">
+
+          ${item.lessons.map(l =>
+            `<li>${l}</li>`
+          ).join("")}
+
+        </ul>
+
+      </div>
+
+      <div class="section">
+
+        <h3>📚 Madda</h3>
+
+        <p>${item.source}</p>
+
+      </div>
+
+      <div class="actions">
+
+        <button onclick="shareStory('${item.id}')">
+          📤 Qoodi
+        </button>
+
+        <button onclick="copyStory('${item.id}')">
+          📋 Copy
+        </button>
+
+      </div>
+
     </div>
 
   `;
@@ -577,17 +1219,18 @@ function openStory(index){
 
 }
 
+
+/* =========================
+   HOME
+========================= */
+
 function goHome(){
 
-  document.getElementById("detailPage").style.display = "none";
+  document.getElementById("detail").style.display = "none";
 
-  document.getElementById("homePage").style.display = "block";
+  document.getElementById("home").style.display = "block";
 
-  document.getElementById("search").style.display = "block";
-
-  document.getElementById("search").value = "";
-
-  showList(sahaba);
+  searchSahaba();
 
   window.scrollTo({
     top:0,
@@ -596,21 +1239,10 @@ function goHome(){
 
 }
 
-function searchSahaba(){
 
-  const value =
-    document.getElementById("search").value
-    .toLowerCase()
-    .trim();
-
-  const result = sahaba.filter(s =>
-    s.name.toLowerCase().includes(value) ||
-    s.short.toLowerCase().includes(value)
-  );
-
-  showList(result);
-
-}
+/* =========================
+   DARK MODE
+========================= */
 
 function toggleDark(){
 
@@ -627,9 +1259,77 @@ if(localStorage.getItem("darkMode") === "true"){
   document.body.classList.add("dark");
 }
 
-showList(sahaba);
+
+/* =========================
+   SHARE
+========================= */
+
+function shareStory(id){
+
+  const item = sahaba.find(x => x.id === id);
+
+  if(!item) return;
+
+  const text =
+`${item.name}
+
+${item.short}
+
+Seenaa Sahaabaa`;
+
+  if(navigator.share){
+
+    navigator.share({
+      title:item.name,
+      text:text
+    });
+
+  }else{
+
+    navigator.clipboard.writeText(text);
+
+    alert("Barreeffamni qoodamuuf copy ta'eera.");
+
+  }
+
+}
+
+
+/* =========================
+   COPY
+========================= */
+
+function copyStory(id){
+
+  const item = sahaba.find(x => x.id === id);
+
+  if(!item) return;
+
+  const text =
+`${item.name}
+
+${item.arabic}
+
+${item.story}
+
+Barumsa:
+${item.lessons.map(x=>"• "+x).join("\n")}`;
+
+  navigator.clipboard.writeText(text)
+    .then(() => {
+      alert("Seenaa kana copy gooteetta.");
+    });
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+renderList(sahaba);
 
 </script>
 
 </body>
-  </html>
+    </html>
