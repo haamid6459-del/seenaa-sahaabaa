@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="om">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Seenaa Sahaabaa</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f5f7f6;
+  color:#17251f;
+}
+
+header{
+  background:#075e54;
+  color:white;
+  padding:18px 15px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+header h1{
+  font-size:25px;
+  margin-bottom:6px;
+}
+
+header p{
+  font-size:14px;
+}
+
+.search-box{
+  padding:15px;
+  background:white;
+  position:sticky;
+  top:75px;
+  z-index:9;
+}
+
+.search-box input{
+  width:100%;
+  padding:13px 15px;
+  border:1px solid #ddd;
+  border-radius:25px;
+  outline:none;
+  font-size:16px;
+}
+
+.container{
+  padding:15px;
+  max-width:900px;
+  margin:auto;
+}
+
+.section-title{
+  margin:10px 0 15px;
+  color:#075e54;
+  font-size:21px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+}
+
+.card{
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+}
+
+.card-image{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  background:#dfe8e4;
+}
+
+.card-content{
+  padding:15px;
+}
+
+.card h3{
+  color:#075e54;
+  margin-bottom:7px;
+}
+
+.card p{
+  color:#555;
+  line-height:1.6;
+  font-size:14px;
+}
+
+.read-btn{
+  margin-top:12px;
+  width:100%;
+  border:none;
+  background:#075e54;
+  color:white;
+  padding:11px;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.read-btn:hover{
+  background:#064c44;
+}
+
+#detailPage{
+  display:none;
+}
+
+.back-btn{
+  background:#075e54;
+  color:white;
+  border:none;
+  padding:10px 16px;
+  border-radius:8px;
+  margin-bottom:15px;
+  cursor:pointer;
+}
+
+.detail-card{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.detail-card img{
+  width:100%;
+  max-height:350px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:18px;
+}
+
+.detail-card h2{
+  color:#075e54;
+  margin-bottom:12px;
+}
+
+.detail-card h3{
+  margin-top:20px;
+  margin-bottom:8px;
+  color:#075e54;
+}
+
+.detail-card p{
+  line-height:1.9;
+  margin-bottom:10px;
+  color:#333;
+}
+
+.arabic{
+  direction:rtl;
+  text-align:right;
+  font-size:19px;
+  line-height:2;
+  background:#f1f6f4;
+  padding:15px;
+  border-radius:10px;
+  margin-top:10px;
+}
+
+.empty{
+  text-align:center;
+  padding:30px;
+  color:#777;
+}
+
+footer{
+  text-align:center;
+  padding:25px;
+  margin-top:30px;
+  background:#075e54;
+  color:white;
+  font-size:14px;
+}
+
+.dark{
+  background:#121817;
+  color:#eee;
+}
+
+.dark .card,
+.dark .detail-card,
+.dark .search-box{
+  background:#1d2624;
+}
+
+.dark .card p,
+.dark .detail-card p{
+  color:#ddd;
+}
+
+.dark .arabic{
+  background:#263330;
+}
+
+.theme-btn{
+  position:absolute;
+  right:15px;
+  top:18px;
+  border:none;
+  background:rgba(255,255,255,.2);
+  color:white;
+  border-radius:50%;
+  width:38px;
+  height:38px;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <button class="theme-btn" onclick="toggleDark()">☾</button>
+  <h1>📖 Seenaa Sahaabaa</h1>
+  <p>Seenaa sahaabota رضي الله عنهم baradhu</p>
+</header>
+
+<div class="search-box">
+  <input
+    type="text"
+    id="search"
+    placeholder="🔎 Maqaa sahaabaa barbaadi..."
+    oninput="searchSahaba()"
+  >
+</div>
+
+<main class="container">
+
+  <section id="homePage">
+
+    <h2 class="section-title">Sahaabota</h2>
+
+    <div class="cards" id="sahabaList"></div>
+
+  </section>
+
+  <section id="detailPage">
+
+    <button class="back-btn" onclick="goHome()">← Duubatti deebi'i</button>
+
+    <div class="detail-card" id="detailContent"></div>
+
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Seenaa Sahaabaa
+  <br>
+  Barnoota, seenaa fi yaadannoo sahaabota رضي الله عنهم
+</footer>
+
+
+<script>
+
+const sahaba = [
+
+{
+name:"Abu Bakr As-Siddiiq رضي الله عنه",
+short:"Khaliifaa jalqabaa fi hiriyyaa dhiyoo Nabii Muhammad ﷺ.",
+image:"https://images.unsplash.com/photo-1542816417-0983674e1c7b?auto=format&fit=crop&w=900&q=80",
+story:`
+Abu Bakr As-Siddiiq رضي الله عنه sahaabota beekamoo keessaa tokko.
+Maqaan isaa Abdullah ibn Abi Quhaafah ture.
+
+Inni namoota jalqabaa keessaa kan Nabii Muhammad ﷺ amanee Islaama
+seene ture.
+
+Abu Bakr رضي الله عنه yeroo rakkoo keessatti Nabii ﷺ cinaa dhaabbate.
+Hijraa gara Madiinaa keessatti Nabii Muhammad ﷺ waliin ture.
+
+Erga Nabii Muhammad ﷺ du'anii booda, Abu Bakr رضي الله عنه
+khaliifaa jalqabaa Muslimootaa ta'e.
+
+Inni amanamummaa, obsa, sadaqaa fi sodaa Rabbii isaatiin beekama.
+`
+},
+
+{
+name:"Umar ibn Al-Khattab رضي الله عنه",
+short:"Khaliifaa lammaffaa, haqaa fi jabaatinaa isaatiin beekama.",
+image:"https://images.unsplash.com/photo-1564121211835-e88c852648ab?auto=format&fit=crop&w=900&q=80",
+story:`
+Umar ibn Al-Khattab رضي الله عنه sahaabaa guddaa fi khaliifaa
+lammaffaa Muslimootaa ture.
+
+Jalqabarratti Islaama irratti mormii qabaatus, yeroo booda Islaama
+seenee Muslimootaaf humna guddaa ta'e.
+
+Erga Islaama seenee booda Muslimoonni ifatti ibaadaa isaanii
+raawwachuu keessatti jabaatan.
+
+Umar رضي الله عنه haqaan murteessuu, soda Rabbii fi of-qorannoo
+isaatiin beekama.
+
+Khaliifummaa isaa keessatti bulchiinsi Muslimootaa bal'inaan babal'ate.
+`
+},
+
+{
+name:"Uthmaan ibn Affaan رضي الله عنه",
+short:"Khaliifaa sadaffaa fi nama Qur'aana walitti qabsiisuu keessatti gahee guddaa qabu.",
+image:"https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=900&q=80",
+story:`
+Uthmaan ibn Affaan رضي الله عنه sahaabaa kabajamaa fi khaliifaa
+sadaffaa Muslimootaa ture.
+
+Inni nama qabeenya isaa karaa Rabbii keessatti baay'ee sadaqatu ture.
+
+Uthmaan رضي الله عنه Nabii Muhammad ﷺ irraa kabaja guddaa qaba ture.
+
+Yeroo khaliifaa ta'ee turetti, Qur'aana qira'aa irratti walitti bu'iinsi
+akka hin uumamneef mushafota sirna tokkoon qopheessuu keessatti
+gahee guddaa qaba.
+
+Inni nama haya'a fi gaarummaa isaatiin beekamu ture.
+`
+},
+
+{
+name:"Ali ibn Abi Taalib رضي الله عنه",
+short:"Ilma abbeeraa Nabii ﷺ, abbaa warraa Faaximaa رضي الله عنها fi khaliifaa afraffaa.",
+image:"https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=900&q=80",
+story:`
+Ali ibn Abi Taalib رضي الله عنه ilma abbeeraa Nabii Muhammad ﷺ ture.
+
+Inni ijoollee keessaa namoota jalqabaa Islaama fudhatan keessaa tokko.
+
+Ali رضي الله عنه beekumsa, gootummaa fi murtii sirrii isaatiin
+beekama.
+
+Inni Faaximaa رضي الله عنها, intala Nabii Muhammad ﷺ, fuudhe.
+
+Erga Uthmaan رضي الله عنه du'ee booda, Ali رضي الله عنه
+khaliifaa afraffaa Muslimootaa ta'e.
+`
+},
+
+{
+name:"Bilal ibn Rabaah رضي الله عنه",
+short:"Mu'azzina Nabii Muhammad ﷺ fi nama obsaa guddaa qabu.",
+image:"https://images.unsplash.com/photo-1564769662533-4f00a87b4056?auto=format&fit=crop&w=900&q=80",
+story:`
+Bilal ibn Rabaah رضي الله عنه sahaabaa beekamaa ture.
+
+Inni garbummaa keessa ture. Islaama erga fudhatee booda,
+sababa amantii isaatiin dararamaa ture.
+
+Abu Bakr رضي الله عنه isa bilisa baasuuf gatii isaa kaffale.
+
+Bilal رضي الله عنه yeroo Nabii Muhammad ﷺ jirutti mu'azzina
+beekamaa ture.
+
+Sagalee isaa adhaanaatiin Muslimoota waamaa ture.
+
+Seenaa isaa keessatti obsaa fi jabaachuun fakkeenya guddaa dha.
+`
+},
+
+{
+name:"Salmaan Al-Faarisii رضي الله عنه",
+short:"Sahaabaa beekamaa, nama dhugaa barbaaduu fi hikmaa isaatiin beekamu.",
+image:"https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=900&q=80",
+story:`
+Salmaan Al-Faarisii رضي الله عنه biyya Faarsi irraa dhufe.
+
+Inni dhugaa barbaaduuf jireenya isaa keessatti imala dheeraa
+raawwate.
+
+Yeroo Nabii Muhammad ﷺ argate, mallattoolee nabiyyummaa
+hubatee Islaama fudhate.
+
+Salmaan رضي الله عنه beekumsa fi yaada isaa irratti beekamaa ture.
+
+Lola Khandaq keessatti yaada boolla qotaa jedhu dhiyeessuun
+Muslimootaaf gargaarsa guddaa ta'e.
+`
+},
+
+{
+name:"Abu Hurayrah رضي الله عنه",
+short:"Sahaabaa hadiisa hedduu Nabii ﷺ irraa dabarse.",
+image:"https://images.unsplash.com/photo-1542816417-0983674e1c7b?auto=format&fit=crop&w=900&q=80",
+story:`
+Abu Hurayrah رضي الله عنه sahaabota hadiisa hedduu dabarsan keessaa
+isa beekamaa dha.
+
+Inni Nabii Muhammad ﷺ waliin yeroo muraasa keessatti beekumsa
+baay'ee barate.
+
+Yaadannoo cimaa qaba ture.
+
+Hadiisota Nabii Muhammad ﷺ irraa dhageenye hedduu ummataaf
+dabarse.
+
+Kanaafuu, barattoota hadiisaaf maqaan Abu Hurayrah رضي الله عنه
+baay'ee beekamaa dha.
+`
+},
+
+{
+name:"Mus'ab ibn Umayr رضي الله عنه",
+short:"Daa'ii fi sahaabaa dargaggeessa Islaama Madiinaa keessatti barsiise.",
+image:"https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&w=900&q=80",
+story:`
+Mus'ab ibn Umayr رضي الله عنه dargaggeessa Makkaa keessatti
+jireenya qananii qabu ture.
+
+Yeroo Islaama fudhatu, jireenyi isaa guutumaan guutuutti jijjiirame.
+
+Nabii Muhammad ﷺ isa gara Madiinaa ergee namoota Islaama
+barsiisuuf itti gaafatamummaa kenne.
+
+Mus'ab رضي الله عنه da'awaa keessatti gahee guddaa qaba.
+
+Lola Uhud keessatti shahidame.
+`
+},
+
+{
+name:"Khaalid ibn Al-Waliid رضي الله عنه",
+short:"Goota beekamaa fi ajajaa waraanaa Muslimootaa.",
+image:"https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=80",
+story:`
+Khaalid ibn Al-Waliid رضي الله عنه sahaabaa gootummaa isaatiin
+beekamaa dha.
+
+Inni waraana keessatti dandeettii ajajummaa guddaa qaba ture.
+
+Erga Islaama seenee booda Muslimootaaf lola hedduu keessatti
+gahee qaba.
+
+Nabii Muhammad ﷺ maqaa "Sayfullaah" jechuun kabaje.
+
+Khaalid رضي الله عنه jireenya isaa keessatti Islaamaaf tajaajila
+guddaa kenne.
+`
+},
+
+{
+name:"Sa'd ibn Abi Waqqaas رضي الله عنه",
+short:"Sahaabaa jalqabaa Islaama fudhatan keessaa tokko fi nama du'aa'iin isaa beekamu.",
+image:"https://images.unsplash.com/photo-1532375810709-75b1da00537c?auto=format&fit=crop&w=900&q=80",
+story:`
+Sa'd ibn Abi Waqqaas رضي الله عنه sahaabaa beekamaa ture.
+
+Inni namoota jalqabaa Islaama fudhatan keessaa tokko.
+
+Lola hedduu keessatti Muslimoota waliin hirmaate.
+
+Sa'd رضي الله عنه xiyya darbuu keessatti dandeettii qaba ture.
+
+Akkasumas, du'aa'iin isaa akka fudhatamu ilaalchisee seenaa
+beekamaa qaba.
+`
+}
+
+];
+
+const list = document.getElementById("sahabaList");
+
+function showList(data){
+
+  list.innerHTML = "";
+
+  if(data.length === 0){
+    list.innerHTML =
+      '<div class="empty">Sahaabaan ati barbaadde hin argamne.</div>';
+    return;
+  }
+
+  data.forEach((s,index)=>{
+
+    const card = document.createElement("div");
+
+    card.className = "card";
+
+    card.innerHTML = `
+      <img
+        class="card-image"
+        src="${s.image}"
+        alt="${s.name}"
+        onerror="this.style.display='none'"
+      >
+
+      <div class="card-content">
+
+        <h3>${s.name}</h3>
+
+        <p>${s.short}</p>
+
+        <button
+          class="read-btn"
+          onclick="openStory(${index})">
+          📖 Seenaa Dubbisi
+        </button>
+
+      </div>
+    `;
+
+    list.appendChild(card);
+
+  });
+
+}
+
+function openStory(index){
+
+  const s = sahaba[index];
+
+  document.getElementById("homePage").style.display = "none";
+
+  document.getElementById("detailPage").style.display = "block";
+
+  document.getElementById("search").style.display = "none";
+
+  document.getElementById("detailContent").innerHTML = `
+
+    <img
+      src="${s.image}"
+      alt="${s.name}"
+      onerror="this.style.display='none'"
+    >
+
+    <h2>${s.name}</h2>
+
+    <h3>📖 Seenaa isaa</h3>
+
+    ${s.story
+      .trim()
+      .split("\\n")
+      .map(p => p.trim() ? `<p>${p.trim()}</p>` : "")
+      .join("")
+    }
+
+    <h3>🤲 Barumsa irraa argannu</h3>
+
+    <p>
+      Seenaa sahaabota رضي الله عنهم irraa amantii,
+      obsa, amanamummaa, ibaadaa, beekumsa fi
+      Islaamaaf tajaajiluu barachuu dandeenya.
+    </p>
+
+    <div class="arabic">
+      رَضِيَ اللهُ عَنْهُمْ وَرَضُوا عَنْهُ
+    </div>
+
+  `;
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+function goHome(){
+
+  document.getElementById("detailPage").style.display = "none";
+
+  document.getElementById("homePage").style.display = "block";
+
+  document.getElementById("search").style.display = "block";
+
+  document.getElementById("search").value = "";
+
+  showList(sahaba);
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+}
+
+function searchSahaba(){
+
+  const value =
+    document.getElementById("search").value
+    .toLowerCase()
+    .trim();
+
+  const result = sahaba.filter(s =>
+    s.name.toLowerCase().includes(value) ||
+    s.short.toLowerCase().includes(value)
+  );
+
+  showList(result);
+
+}
+
+function toggleDark(){
+
+  document.body.classList.toggle("dark");
+
+  localStorage.setItem(
+    "darkMode",
+    document.body.classList.contains("dark")
+  );
+
+}
+
+if(localStorage.getItem("darkMode") === "true"){
+  document.body.classList.add("dark");
+}
+
+showList(sahaba);
+
+</script>
+
+</body>
+  </html>
